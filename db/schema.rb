@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_06_195213) do
+ActiveRecord::Schema.define(version: 2019_08_06_212653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,15 +31,19 @@ ActiveRecord::Schema.define(version: 2019_08_06_195213) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "groups_users", id: false, force: :cascade do |t|
+    t.bigint "group_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["group_id", "user_id"], name: "index_groups_users_on_group_id_and_user_id"
+    t.index ["user_id", "group_id"], name: "index_groups_users_on_user_id_and_group_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "group_id"
-    t.index ["group_id"], name: "index_users_on_group_id"
   end
 
   add_foreign_key "bookmarks", "groups"
-  add_foreign_key "users", "groups"
 end

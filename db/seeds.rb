@@ -14,7 +14,7 @@ end
 puts "3 test groups created"
 
 
-# These get used below
+# These Group model references get used below
 g1 = Group.first
 g2 = Group.second
 g3 = Group.third
@@ -23,32 +23,40 @@ g3 = Group.third
 # Users
 (1..6).each do |i|
   if i < 3
-    group_id = g1.id
+    group = g1
   elsif i > 2 && i < 5
-    group_id = g2.id
+    group = g2
   else
-    group_id = g3.id
+    group = g3
   end
 
-  User.create!(name: "User #{i}", email: "seeded_user_#{i}@example.com", group_id: group_id)
+  group.users << User.create!(name: "User #{i}", email: "seeded_user_#{i}@example.com")
+
 end
-puts "6 test users created across 3 groups"
+puts "6 test users created across 3 test groups (2 per group)"
+
+# Create an additional user that is a member all three groups
+user_7 = User.create!(name: "User 7", email: "seeded_user_7@example.com")
+g1.users << user_7
+g2.users << user_7
+g3.users << user_7
+puts "1 additional test user created as a member of all three test groups"
 
 
 # Bookmarks
 num = 0
 (1..15).each do |i|
   if i < 6
-    group_id = g1.id
+    group = g1
   elsif i > 5 && i < 11
-    group_id = g2.id
+    group = g2
   elsif i > 10
-    group_id = g3.id
+    group = g3
   end
 
   Bookmark.create!(title: "Bookmark #{i}", 
                      url: "https://example.com/test/#{i}", 
                      desc: "This is a seeded bookmark",
-                     group_id: group_id)
+                     group_id: group.id)
 end
-puts "15 test bookmarks created across 3 groups"
+puts "15 test bookmarks created across 3 test groups (5 bookmarks per group)"

@@ -6,21 +6,49 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-row_count = 5
 
-row_count.times do |num|
-  Bookmark.create!(title: "Seeded bookmark #{num}", 
-                     url: "https://example.com/test/#{num}", 
-                     desc: "This bookmark was seeded by Rails")
+# Groups
+(1..3).each do |group_num|
+  Group.create!(title: "Group #{group_num}")
 end
-puts "#{row_count} bogus bookmarks created"
+puts "3 test groups created"
 
-row_count.times do |num|
-  User.create!(name: "Seeded user #{num}", email: "seeded_user_#{num}@example.com")
-end
-puts "#{row_count} bogus users created"
 
-row_count.times do |num|
-  Group.create!(title: "Seeded group #{num}")
+# These get used below
+g1 = Group.first
+g2 = Group.second
+g3 = Group.third
+
+
+# Users
+(1..6).each do |i|
+  if i < 3
+    group_id = g1.id
+  elsif i > 2 && i < 5
+    group_id = g2.id
+  else
+    group_id = g3.id
+  end
+
+  User.create!(name: "User #{i}", email: "seeded_user_#{i}@example.com", group_id: group_id)
 end
-puts "#{row_count} bogus groups created"
+puts "6 test users created across 3 groups"
+
+
+# Bookmarks
+num = 0
+(1..15).each do |i|
+  if i < 6
+    group_id = g1.id
+  elsif i > 5 && i < 11
+    group_id = g2.id
+  elsif i > 10
+    group_id = g3.id
+  end
+
+  Bookmark.create!(title: "Bookmark #{i}", 
+                     url: "https://example.com/test/#{i}", 
+                     desc: "This is a seeded bookmark",
+                     group_id: group_id)
+end
+puts "15 test bookmarks created across 3 groups"

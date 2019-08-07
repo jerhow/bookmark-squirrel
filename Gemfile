@@ -60,3 +60,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', '1.2019.1'
+
+gem 'devise', '~> 4.6', '>= 4.6.2'

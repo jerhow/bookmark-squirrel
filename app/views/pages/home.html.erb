@@ -1,1 +1,14 @@
 <p>Homepage</p>
+
+<% if current_user %>
+Welcome, <%= current_user.name %>!
+<% end %>
+<br />
+<br />
+<%= session[:session_id] %>
+<br />
+<br />
+<%= login_helper %>
+<br />
+<br />
+<%= current_user.inspect %>

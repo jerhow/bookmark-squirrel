@@ -1,11 +1,15 @@
 class BookmarksController < ApplicationController
-  before_action :setup
-  before_action :access_control
+  before_action :setup, only: [:show]
+  before_action :access_control, only: [:show]
   
   def index
   end
 
   def show
+  end
+
+  def new
+    @bookmark = Bookmark.new
   end
 
   def unauthorized

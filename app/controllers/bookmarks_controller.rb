@@ -7,24 +7,34 @@ class BookmarksController < ApplicationController
   def show
   end
 
+  def unauthorized
+  end
+
+  def unknown
+  end
+
   private
     def can_access?
       group_id = params[:id]
-      users = Group.find_by(title: group_id).users
-      user_ids = []
+      group = Group.find_by(title: group_id)
       
-      users.each do |u|
-        user_ids << u.id
-      end
+      if group.nil?
+        render :unknown, status: :not_found
+      else
+        users = group.users
+        user_ids = []
+        
+        users.each do |u|
+          user_ids << u.id
+        end
 
-      user_ids.include? current_user.id
+        user_ids.include? current_user.id
+      end
     end
 
     def authorize
-      if can_access?
-        puts "BOOSH"
-      else
-        puts "KAKOW"
+      if !can_access?
+        render :unauthorized, status: :unauthorized
       end
     end
 end

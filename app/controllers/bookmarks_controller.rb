@@ -18,7 +18,7 @@ class BookmarksController < ApplicationController
 
     def setup
       @group_id = params[:id]
-      @group = Group.find_by(title: @group_id)
+      @group = Group.find_by(id: @group_id)
     end
 
     def access_control

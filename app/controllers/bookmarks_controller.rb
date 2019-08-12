@@ -12,12 +12,6 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new
   end
 
-  def unauthorized
-  end
-
-  def unknown
-  end
-
   private
 
     def setup

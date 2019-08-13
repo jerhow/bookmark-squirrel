@@ -27,8 +27,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :group %>
-    <%= select_tag :group, options_for_select( group_select_tag_helper( current_user.id ) ) %>
+    <%= form.label :group_id %>
+    <%= select_tag :group_id, options_for_select( group_select_tag_helper( current_user.id ) ) %>
   </div>
 
   <div class="actions">

@@ -12,6 +12,24 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new
   end
 
+  def create
+    @bookmark = Bookmark.new(bookmark_params)
+    group_id = params['group_id']
+    # TODO: Authorize group_id against the current user id!!!
+    @bookmark.group_id = group_id
+    
+    respond_to do |format|
+      if @bookmark.save
+        format.html { redirect_to action: "show", id: group_id }
+        # format.html { redirect_to @bookmark, notice: 'Bookmark was successfully created.' }
+        # format.json { render :show, status: :created, location: @bookmark }
+      else
+        format.html { render :new }
+        # format.json { render json: @bookmark.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
     def setup
@@ -44,5 +62,10 @@ class BookmarksController < ApplicationController
       end
 
       user_ids.include? current_user.id
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def bookmark_params
+      params.require(:bookmark).permit(:title, :url, :desc, :group)
     end
 end

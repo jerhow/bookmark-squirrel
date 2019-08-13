@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :group %>
-    <%= collection_select(:bookmark, :group_id, User.find_by(id: current_user.id).groups.order(title: :asc), :id, :title, prompt: true) %>
+    <%= collection_select(:bookmark, :group_id, current_user.get_groups, :id, :title, prompt: true) %>
   </div>
 
   <div class="actions">

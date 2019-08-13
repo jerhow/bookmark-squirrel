@@ -1,44 +1,70 @@
-class BookmarksController < ApplicationController
-  before_action :setup
-  before_action :access_control
-  
+class BookmarksController < ApplicationController  
   def index
   end
 
   def show
+    group_id = params[:id]
+    @group = Group.find_by(id: group_id)
+    access_control(@group)
   end
 
-  def unauthorized
+  def new
+    @bookmark = Bookmark.new
   end
 
-  def unknown
+  def create
+    @bookmark = Bookmark.new(bookmark_params)
+    group_id = @bookmark.group_id
+    authorize_access_to_group(group_id)
+    
+    respond_to do |format|
+      if @bookmark.save
+        format.html { redirect_to action: "show", id: group_id }
+        # format.html { redirect_to @bookmark, notice: 'Bookmark was successfully created.' }
+        # format.json { render :show, status: :created, location: @bookmark }
+      else
+        format.html { render :new }
+        # format.json { render json: @bookmark.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
 
-    def setup
-      @group_id = params[:id]
-      @group = Group.find_by(id: @group_id)
-    end
+    def authorize_access_to_group(group_id)
+      group = Group.find_by(id: group_id)
 
-    def access_control
-      if !group_exists? # 404
-        render :unknown, status: :not_found
+      if !group_exists?(group)
+        puts "\nHits the GROUP DOESN'T EXIST condition!\n"
+        format.html { render :new }
         return false
       end
 
-      if !user_can_access_group? # 401
-        render :unauthorized, status: :unauthorized
+      if !user_can_access_group?(group)
+        puts "\nHits the NO GROUP ACCESS condition!\n"
+        format.html { render :new }
         return false
       end
     end
 
-    def group_exists?
-      !@group.nil?
+    def access_control(group)
+      if !group_exists?(group)
+        render :unknown, status: :not_found # 404
+        return false
+      end
+
+      if !user_can_access_group?(group)
+        render :unauthorized, status: :unauthorized # 401
+        return false
+      end
     end
 
-    def user_can_access_group?
-      users = @group.users
+    def group_exists?(group)
+      !group.nil?
+    end
+
+    def user_can_access_group?(group)
+      users = group.users
       user_ids = []
       
       users.each do |u|
@@ -46,5 +72,10 @@ class BookmarksController < ApplicationController
       end
 
       user_ids.include? current_user.id
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def bookmark_params
+      params.require(:bookmark).permit(:title, :url, :desc, :group_id)
     end
 end

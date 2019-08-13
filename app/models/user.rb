@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def set_defaults
     self.profile_image ||= Placeholder.image_generator(width: '150', height: '150')
   end
+
+  def get_groups
+    self.groups.order(title: :asc)
+  end
 end

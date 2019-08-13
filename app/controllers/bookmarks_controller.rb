@@ -14,9 +14,8 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark = Bookmark.new(bookmark_params)
-    group_id = params['group_id']
+    group_id = @bookmark.group_id
     # TODO: Authorize group_id against the current user id!!!
-    @bookmark.group_id = group_id
     
     respond_to do |format|
       if @bookmark.save
@@ -66,6 +65,6 @@ class BookmarksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bookmark_params
-      params.require(:bookmark).permit(:title, :url, :desc, :group)
+      params.require(:bookmark).permit(:title, :url, :desc, :group_id)
     end
 end

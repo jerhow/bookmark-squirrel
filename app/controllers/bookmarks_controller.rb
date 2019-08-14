@@ -6,7 +6,7 @@ class BookmarksController < ApplicationController
     group_id = params[:id]
     @group = Group.find_by(id: group_id)
     access_control(@group)
-    @bookmarks = @group.bookmarks
+    @bookmarks = @group.bookmarks.where(archived: false)
   end
 
   def new

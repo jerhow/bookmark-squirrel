@@ -12,6 +12,7 @@
       <th>Desc</th>
       <th>Created</th>
       <th>&nbsp;</th>
+      <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
@@ -22,7 +23,16 @@
       <td><%= b.desc %></td>
       <td>Hold</td>
       <td><%= link_to 'Edit', action: "edit", id: b.id %></td>
+      <td><a rel="nofollow" data-method="patch" href="/b/<%= b.id %>/archive">Archive</a></td>
     </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= javascript_tag do %>
+if (typeof jQuery === 'undefined') {
+  console.log("jQuery is NOT available")
+} else {
+  console.log("jQuery is available")
+}
+<% end %>

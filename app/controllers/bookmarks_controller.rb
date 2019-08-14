@@ -52,6 +52,26 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def archive
+    bookmark = Bookmark.find_by(id: params[:id])
+    group = bookmark.group
+    group_id = group.id
+
+    respond_to do |format|
+      # Only proceed if this bookmark is rightly owned by a group that this user is a member of.
+      if group.users.where(id: current_user.id).count == 1
+        if bookmark.update!(archived: true)
+          flash[:success] = "Bookmark was successfully archived"
+          format.html { redirect_to action: "show", id: group_id }
+        else
+          flash[:failure] = "Oops, something went wrong when we tried to archive this bookmark"
+          format.html { redirect_to action: "show", id: group_id }
+        end
+      end
+    end
+    
+  end
+
   private
 
     def authorize_access_to_group(group_id)

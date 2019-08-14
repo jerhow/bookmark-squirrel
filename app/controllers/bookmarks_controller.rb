@@ -30,6 +30,28 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def edit
+    @bookmark = Bookmark.find_by(id: params[:id])
+    @group_id = @bookmark.group.id
+  end
+
+  def update
+    bookmark = Bookmark.find_by(id: params[:id])
+    group_id = bookmark.group.id
+
+    respond_to do |format|
+      if bookmark.update(bookmark_params)
+        flash[:success] = "Bookmark was successfully updated"
+        format.html { redirect_to action: "show", id: group_id }
+        # format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @blog }
+      else
+        format.html { render :edit }
+        # format.json { render json: @blog.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
     def authorize_access_to_group(group_id)

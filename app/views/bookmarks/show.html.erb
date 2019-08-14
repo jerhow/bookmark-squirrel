@@ -11,6 +11,7 @@
       <th>URL</th>
       <th>Desc</th>
       <th>Created</th>
+      <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
@@ -20,67 +21,7 @@
       <td><%= b.url %></td>
       <td><%= b.desc %></td>
       <td>Hold</td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<table class="u-full-width">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>URL</th>
-      <th>Desc</th>
-      <th>Created</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bookmarks.each do |b| %>
-    <tr>
-      <td><%= b.title %></td>
-      <td><%= b.url %></td>
-      <td><%= b.desc %></td>
-      <td>Hold</td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<table class="u-full-width">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>URL</th>
-      <th>Desc</th>
-      <th>Created</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bookmarks.each do |b| %>
-    <tr>
-      <td><%= b.title %></td>
-      <td><%= b.url %></td>
-      <td><%= b.desc %></td>
-      <td>Hold</td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<table class="u-full-width">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>URL</th>
-      <th>Desc</th>
-      <th>Created</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bookmarks.each do |b| %>
-    <tr>
-      <td><%= b.title %></td>
-      <td><%= b.url %></td>
-      <td><%= b.desc %></td>
-      <td>Hold</td>
+      <td><%= link_to 'Edit', action: "edit", id: b.id %></td>
     </tr>
     <% end %>
   </tbody>

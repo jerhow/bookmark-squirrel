@@ -6,7 +6,7 @@ class BookmarksController < ApplicationController
     group_id = params[:id]
     @group = Group.find_by(id: group_id)
     access_control(@group)
-    @bookmarks = @group.bookmarks
+    @bookmarks = @group.bookmarks.where(archived: false)
   end
 
   def new
@@ -28,6 +28,48 @@ class BookmarksController < ApplicationController
         # format.json { render json: @bookmark.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def edit
+    @bookmark = Bookmark.find_by(id: params[:id])
+    @group_id = @bookmark.group.id
+  end
+
+  def update
+    bookmark = Bookmark.find_by(id: params[:id])
+    group_id = bookmark.group.id
+
+    respond_to do |format|
+      if bookmark.update(bookmark_params)
+        flash[:success] = "Bookmark was successfully updated"
+        format.html { redirect_to action: "show", id: group_id }
+        # format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @blog }
+      else
+        format.html { render :edit }
+        # format.json { render json: @blog.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def archive
+    bookmark = Bookmark.find_by(id: params[:id])
+    group = bookmark.group
+    group_id = group.id
+
+    respond_to do |format|
+      # Only proceed if this bookmark is rightly owned by a group that this user is a member of.
+      if group.users.where(id: current_user.id).count == 1
+        if bookmark.update!(archived: true)
+          flash[:success] = "Bookmark was successfully archived"
+          format.html { redirect_to action: "show", id: group_id }
+        else
+          flash[:failure] = "Oops, something went wrong when we tried to archive this bookmark"
+          format.html { redirect_to action: "show", id: group_id }
+        end
+      end
+    end
+    
   end
 
   private

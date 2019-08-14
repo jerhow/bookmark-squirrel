@@ -1,7 +1,9 @@
 <p>Show page</p>
 
 <p>
-  <%= @group.title %>
+  <%= collection_select(:bookmark, :group_id, current_user.get_groups, :id, :title, 
+    options = { :selected => @group.id },
+    html_options = { :onchange => "change_group(this.value);" }) %>
 </p>
 
 <table class="u-full-width">
@@ -28,3 +30,9 @@
     <% end %>
   </tbody>
 </table>
+
+<%= javascript_tag do %>
+function change_group(group_id) {
+  window.location.href = group_id;
+}
+<% end %>

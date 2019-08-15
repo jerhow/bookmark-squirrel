@@ -4,8 +4,6 @@ class GroupsController < ApplicationController
   def edit
     group_id = params[:id]
     @group = Group.find_by(id: group_id)
-    if access_control(@group)
-      # ...
-    end
+    @users_in_group = @group.users.order(name: :asc) if access_control(@group)
   end
 end

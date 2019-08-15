@@ -1,2 +1,27 @@
 <br /><br />
-<h3>Edit this group: <%= @group.title %></h3>
+<h1>Editing Group</h1>
+
+<%= render 'form', group: @group %>
+
+<br />
+
+<a href="#">Add a user to this group</a>
+
+<hr />
+
+<h3>Users:</h3>
+
+<p>Users currently in this group:</p>
+
+<% @users_in_group.each do |u| %>
+  <div>
+    <%= image_tag u.profile_image, height: '64', width: '64' %>
+    <br />
+    <%= u.name %>
+    <br />
+    <a href="#">Remove</a>
+    <br /><br />
+  </div>
+<% end %>
+
+<%= link_to 'Back', bookmarks_path %>

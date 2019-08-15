@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :bookmarks, path: 'b'
   patch 'b/:id/archive', to: 'bookmarks#archive', as: 'archive_bookmark'
-  get 'user/profile', to: 'user#show', as: 'show_user'
+  get 'user/profile', to: 'users#show', as: 'show_user'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

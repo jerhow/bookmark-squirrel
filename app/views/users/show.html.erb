@@ -1,0 +1,35 @@
+<br /><br />
+
+<h3>User Profile</h3>
+
+<div>
+  <%= image_tag current_user.profile_image %>
+</div>
+
+<div>
+  User ID: <%= current_user.id %>
+</div>
+
+<div>
+  Name: <%= current_user.name %>
+</div>
+
+<div>
+  Email: <%= current_user.email %>
+</div>
+
+<div>
+  Account created: <%= current_user.created_at %>
+</div>
+
+<div>
+  Account last updated: <%= current_user.updated_at %>
+</div>
+
+<div>
+  <%= link_to 'Edit', edit_user_registration_path %>
+</div>
+
+<div>
+  <%= link_to 'Home', root_path %>
+</div>

@@ -99,6 +99,8 @@ class BookmarksController < ApplicationController
         render :unauthorized, status: :unauthorized # 401
         return false
       end
+
+      return true
     end
 
     def group_exists?(group)

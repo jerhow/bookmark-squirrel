@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :bookmarks, path: 'b'
   patch 'b/:id/archive', to: 'bookmarks#archive', as: 'archive_bookmark'
   get 'user/profile', to: 'users#show', as: 'show_user'
+  resources :groups, path: 'g'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -7,8 +7,8 @@ Your groups:
 </p>
 
 <% @groups.each do |g| %>
-  <div><%= link_to g.title, action: "show", id: g.id %></div>
-  <div>Edit</div>
+  <div><%= link_to g.title, bookmark_path(g) %></div>
+  <div><%= link_to 'Edit', edit_group_path(g) %></div>
   <div>Delete</div>
   <br />
 <% end %>

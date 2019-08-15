@@ -1,5 +1,6 @@
 class BookmarksController < ApplicationController  
   def index
+    @groups = current_user.groups.order(created_at: :asc)
   end
 
   def show

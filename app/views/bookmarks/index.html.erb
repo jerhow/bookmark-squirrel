@@ -1,1 +1,14 @@
+<br /><br />
+
 <p>Bookmarks page</p>
+
+<p>
+Your groups:
+</p>
+
+<% @groups.each do |g| %>
+  <div><%= link_to g.title, action: "show", id: g.id %></div>
+  <div>Edit</div>
+  <div>Delete</div>
+  <br />
+<% end %>

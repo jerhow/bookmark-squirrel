@@ -9,15 +9,20 @@ class GroupsController < ApplicationController
 
   def update
     group = Group.find_by(id: params[:id])
-    
-    respond_to do |format|
-      if group.update(group_params)
-        flash[:success] = "Group was successfully updated"
-        format.html { redirect_to action: "edit", id: group.id }
-      else
-        flash[:notice] = "Oops, there was a problem updating this group :/"
-        format.html { render :edit }
+
+    # Ensure this person is the owner of the group
+    if current_user.id == group.owner_user_id
+
+      respond_to do |format|
+        if group.update(group_params)
+          flash[:success] = "Group was successfully updated"
+          format.html { redirect_to action: "edit", id: group.id }
+        else
+          flash[:notice] = "Oops, there was a problem updating this group :/"
+          format.html { render :edit }
+        end
       end
+    
     end
   end
 

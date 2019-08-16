@@ -19,7 +19,12 @@
     <br />
     <%= u.name %>
     <br />
-    <a href="#">Remove</a>
+    <%= tag.a("Remove", 
+              href: "/g/#{@group.id}/#{u.id}", 
+              rel: "nofollow", 
+              data: {
+                method: "delete", 
+                confirm: "Are you sure you want to remove '#{u.name}' from this group?"}) %>
     <br /><br />
   </div>
 <% end %>

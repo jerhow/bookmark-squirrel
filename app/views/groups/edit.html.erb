@@ -1,0 +1,32 @@
+<br /><br />
+<h1>Editing Group</h1>
+
+<%= render 'form', group: @group %>
+
+<br />
+
+<a href="#">Add a user to this group</a>
+
+<hr />
+
+<h3>Users:</h3>
+
+<p>Users currently in this group:</p>
+
+<% @users_in_group.each do |u| %>
+  <div>
+    <%= image_tag u.profile_image, height: '64', width: '64' %>
+    <br />
+    <%= u.name %>
+    <br />
+    <%= tag.a("Remove", 
+              href: "/g/#{@group.id}/#{u.id}", 
+              rel: "nofollow", 
+              data: {
+                method: "delete", 
+                confirm: "Are you sure you want to remove '#{u.name}' from this group?"}) %>
+    <br /><br />
+  </div>
+<% end %>
+
+<%= link_to 'Back', bookmarks_path %>

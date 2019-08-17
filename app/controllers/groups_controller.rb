@@ -1,6 +1,25 @@
 class GroupsController < ApplicationController
   include GroupAccessConcern
 
+  def new
+    @group = Group.new
+  end
+
+  def create
+    group = Group.new(group_params)
+    group.users << current_user
+
+    respond_to do |format|
+        if group.save!
+          flash[:success] = "Group '#{group.title}' was successfully created"
+          format.html { redirect_to root_path }
+        else
+          flash[:notice] = "Oops, there was a problem creating this group :/"
+          format.html { render :new }
+        end
+      end
+  end
+
   def edit
     group_id = params[:id]
     @group = Group.find_by(id: group_id)
@@ -13,7 +32,7 @@ class GroupsController < ApplicationController
     if current_user_owns_group?(group)
 
       respond_to do |format|
-        if group.update(group_params)
+        if group.update!(group_params)
           flash[:success] = "Group was successfully updated"
           format.html { redirect_to action: "edit", id: group.id }
         else

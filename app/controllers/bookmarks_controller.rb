@@ -16,12 +16,12 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = Bookmark.new(bookmark_params)
-    group_id = @bookmark.group_id
+    bookmark = Bookmark.new(bookmark_params)
+    group_id = bookmark.group_id
     authorize_access_to_group(group_id)
     
     respond_to do |format|
-      if @bookmark.save
+      if bookmark.save
         format.html { redirect_to action: "show", id: group_id }
         # format.html { redirect_to @bookmark, notice: 'Bookmark was successfully created.' }
         # format.json { render :show, status: :created, location: @bookmark }

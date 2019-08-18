@@ -5,13 +5,13 @@ Welcome, <%= current_user.name %>!
 <% end %>
 <br />
 <br />
-<%= session[:session_id] %>
-<br />
-<br />
 <%= login_helper %>
 <br />
 <br />
-<%= current_user.inspect %>
-<br />
-<br />
 <%= link_to 'Create a new group', new_group_path %>
+<br />
+<br />
+You currently have <%= @group_count %> groups.
+<br />
+<br />
+<%= link_to 'View your groups', user_groups_path %>

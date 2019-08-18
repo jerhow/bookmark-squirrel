@@ -1,6 +1,14 @@
 class GroupsController < ApplicationController
   include GroupAccessConcern
 
+  before_action :redirect_to_user_groups, only: [:index, :show]
+
+  def index
+  end
+
+  def show
+  end
+
   def new
     @group = Group.new
   end
@@ -124,6 +132,12 @@ class GroupsController < ApplicationController
 
     def current_user_owns_group?(group)
       current_user.id == group.owner_user_id
+    end
+
+    def redirect_to_user_groups
+      respond_to do |format|
+        format.html { redirect_to user_groups_path }
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

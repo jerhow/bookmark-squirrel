@@ -30,7 +30,7 @@ g3 = Group.third
     group = g3
   end
 
-  group.users << User.create!(name: "User #{i}", email: "seeded_user_#{i}@example.com")
+  group.users << User.create!(name: "User #{i}", email: "seeded_user_#{i}@example.com", password: ENV['SEED_USER_PASSWORD'])
 
 end
 puts "6 test users created across 3 test groups (2 per group)"

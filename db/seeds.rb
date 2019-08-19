@@ -36,7 +36,7 @@ end
 puts "6 test users created across 3 test groups (2 per group)"
 
 # Create an additional user that is a member all three groups
-user_7 = User.create!(name: "User 7", email: "seeded_user_7@example.com")
+user_7 = User.create!(name: "User 7", email: "seeded_user_7@example.com", password: ENV['SEED_USER_PASSWORD'])
 g1.users << user_7
 g2.users << user_7
 g3.users << user_7

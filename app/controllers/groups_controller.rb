@@ -56,7 +56,7 @@ class GroupsController < ApplicationController
     group = Group.find_by(id: params[:group_id])
     remove_this_user_from_group = User.find_by(id: params[:user_id])
 
-    if current_user_owns_group?(group)
+    if current_user_owns_group?(group) && current_user.id != remove_this_user_from_group.id
 
       success = !group.users.delete(remove_this_user_from_group).nil?
 

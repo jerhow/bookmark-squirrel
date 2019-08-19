@@ -24,7 +24,7 @@
               rel: "nofollow", 
               data: {
                 method: "delete", 
-                confirm: "Are you sure you want to remove '#{u.name}' from this group?"}) %>
+                confirm: "Are you sure you want to remove '#{u.name}' from this group?"}) if u.id != current_user.id %>
     <br /><br />
   </div>
 <% end %>

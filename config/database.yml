@@ -86,6 +86,7 @@ production:
   # database: BookmarkSquirrel_production
   # username: BookmarkSquirrel
   # password: <%= ENV['BOOKMARKSQUIRREL_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
   host: <%= ENV['DATABASE_HOST'] %>
   username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>

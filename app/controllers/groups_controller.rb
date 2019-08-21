@@ -16,6 +16,7 @@ class GroupsController < ApplicationController
   def create
     group = Group.new(group_params)
     group.users << current_user
+    group.owner_user_id = current_user.id
 
     respond_to do |format|
         if group.save!

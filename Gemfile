@@ -64,3 +64,5 @@ gem 'tzinfo-data', '1.2019.1'
 gem 'devise', '~> 4.6', '>= 4.6.2'
 
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
+
+gem "aws-sdk-s3", require: false

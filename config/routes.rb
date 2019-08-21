@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'g/:group_id/new-user', to: 'groups#new_user', as: 'new_user_for_group'
   post 'g/:group_id/new-user', to: 'groups#add_user', as: 'add_user_to_group'
   get 'user/groups', to: 'users#groups', as: 'user_groups'
+  delete 'u/:user_id/delete-avatar', to: 'users#delete_avatar', as: 'delete_user_avatar'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

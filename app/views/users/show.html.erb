@@ -3,7 +3,8 @@
 <h3>User Profile</h3>
 
 <div>
-  <%= image_tag current_user.profile_image %>
+  <%= image_tag user_avatar(current_user, 100) %>
+  <br />
 </div>
 
 <div>

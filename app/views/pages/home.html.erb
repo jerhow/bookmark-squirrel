@@ -3,6 +3,10 @@
 <% if current_user %>
 Welcome, <%= current_user.name %>!
 <% end %>
+
+<br />
+<%= image_tag user_avatar(current_user, 50) if !current_user.nil? %>
+
 <br />
 <br />
 <%= login_helper %>

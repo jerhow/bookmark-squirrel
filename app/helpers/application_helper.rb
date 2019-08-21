@@ -10,4 +10,12 @@ module ApplicationHelper
         (link_to "Register", new_user_registration_path, class: style)
     end
   end
+
+  def user_avatar(user, size=50)
+    if user.avatar.attached?
+      user.avatar.variant(combine_options: {resize: "#{size}x#{size}!"})
+    else
+      user.profile_image
+    end
+  end
 end

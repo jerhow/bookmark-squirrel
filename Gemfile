@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -64,3 +64,5 @@ gem 'tzinfo-data', '1.2019.1'
 gem 'devise', '~> 4.6', '>= 4.6.2'
 
 gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
+
+gem "aws-sdk-s3", require: false

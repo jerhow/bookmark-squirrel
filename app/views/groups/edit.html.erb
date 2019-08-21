@@ -15,7 +15,7 @@
 
 <% @users_in_group.each do |u| %>
   <div>
-    <%= image_tag u.profile_image, height: '64', width: '64' %>
+    <%= image_tag user_avatar(u, 75) %>
     <br />
     <%= u.name %>
     <br />

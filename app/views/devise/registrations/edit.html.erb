@@ -43,6 +43,11 @@
   </div>
 
   <div class="field">
+    <%= link_to "Delete photo", delete_user_avatar_path(resource), method: :delete, prompt: true %>
+    <br /><br />
+  </div>
+
+  <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>

@@ -5,4 +5,14 @@ class UsersController < ApplicationController
   def groups
     @groups = current_user.groups
   end
+
+  def delete_avatar
+    user = User.find_by(id: params[:user_id])
+    current_user.avatar.purge if user.id == current_user.id
+
+    respond_to do |format|
+      flash[:success] = "Profile image was successfully deleted"
+      format.html { redirect_to edit_user_registration_path }
+    end
+  end
 end

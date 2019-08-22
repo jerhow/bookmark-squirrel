@@ -7,7 +7,6 @@
 <% @groups.each do |g| %>
   <div><%= link_to g.title, :controller => 'bookmarks', :action => 'show', :id => g.id %></div>
   <div><%= g.created_at %></div>
-  
-  <div><%= link_to 'Edit', :controller => 'groups', :action => 'edit', :id => g.id %></div>
+  <div><%= edit_group_link current_user, g %></div>
   <br /><br />
 <% end %>

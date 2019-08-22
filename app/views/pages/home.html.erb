@@ -15,7 +15,7 @@ Welcome, <%= current_user.name %>!
 <%= link_to 'Create a new group', new_group_path %>
 <br />
 <br />
-You currently have <%= @group_count %> groups.
+You are a member of <%= link_to "#{@group_count} groups", user_groups_path %>.
 <br />
 <br />
-<%= link_to 'View your groups', user_groups_path %>
+

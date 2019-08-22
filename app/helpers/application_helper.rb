@@ -18,4 +18,12 @@ module ApplicationHelper
       user.profile_image
     end
   end
+
+  def edit_group_link(user, group)
+    if group.owner_user_id == current_user.id
+      link_to 'Manage this group', :controller => 'groups', :action => 'edit', :id => group.id
+    else
+      ''
+    end
+  end
 end

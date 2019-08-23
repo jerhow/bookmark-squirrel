@@ -6,7 +6,7 @@ class DemoController < ApplicationController
     name = "demo_#{ts}"
     email = "#{name}@bookmarksquirrel.com"
     pw = random_string(32)
-    user = User.new(name: name, email: email, password: pw)
+    user = User.new(name: name, email: email, password: pw, demo: true)
     user.save!
 
     session[:demo_email] = email

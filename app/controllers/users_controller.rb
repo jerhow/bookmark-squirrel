@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
+    @is_admin = current_user.admin?
   end
 
   def groups

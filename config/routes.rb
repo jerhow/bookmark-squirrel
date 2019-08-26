@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'user/groups', to: 'users#groups', as: 'user_groups'
   delete 'u/:user_id/delete-avatar', to: 'users#delete_avatar', as: 'delete_user_avatar'
   post 'demo/init', to: 'demo#init', as: 'demo_init'
+  delete 'demo/purge', to: 'demo#purge_expired_demo_users', as: 'demo_purge'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

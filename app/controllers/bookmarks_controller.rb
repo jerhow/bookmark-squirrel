@@ -8,7 +8,7 @@ class BookmarksController < ApplicationController
   def show
     group_id = params[:id]
     @group = Group.find_by(id: group_id)
-    @bookmarks = @group.bookmarks.where(archived: false) if access_control(@group)
+    @bookmarks = @group.bookmarks.where(archived: false).order(created_at: :asc) if access_control(@group)
   end
 
   def new

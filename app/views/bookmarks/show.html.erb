@@ -23,7 +23,7 @@
       <td><%= b.title %></td>
       <td><%= b.url %></td>
       <td><%= b.desc %></td>
-      <td>Hold</td>
+      <td><%= b.created_at.strftime("%m/%d/%Y") %></td>
       <td><%= link_to 'Edit', action: "edit", id: b.id %></td>
       <td><a rel="nofollow" data-method="patch" href="/b/<%= b.id %>/archive">Archive</a></td>
     </tr>

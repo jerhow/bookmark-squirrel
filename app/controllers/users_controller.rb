@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def groups
-    @groups = current_user.groups
+    @groups = current_user.groups.order(created_at: :asc)
   end
 
   def delete_avatar

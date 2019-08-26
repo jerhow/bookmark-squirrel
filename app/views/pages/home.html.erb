@@ -1,7 +1,7 @@
-<p>Homepage</p>
+<br /><br />
 
 <% if current_user %>
-Welcome, <%= current_user.name %>!
+  Welcome, <%= current_user.name %>!
 <% end %>
 
 <br />
@@ -9,14 +9,21 @@ Welcome, <%= current_user.name %>!
 
 <br />
 <br />
+<% if current_user %>
+  You are a member of <%= link_to "#{pluralize(@group_count, 'group')}", user_groups_path %>.
+  <br />
+  <br />
+  <%= link_to 'Create a new group', new_group_path %>
+  <br />
+<br />
+<% end %>
+
 <%= login_helper %>
 <br />
 <br />
-<%= link_to 'Create a new group', new_group_path %>
-<br />
-<br />
-You are a member of <%= link_to "#{pluralize(@group_count, 'group')}", user_groups_path %>.
-<br />
-<br />
-For the merely curious, you can also sign in with a temporary
-  <%= link_to "demo account", demo_init_path, method: "post", rel: "nofollow" %>
+
+<% if !current_user %>
+  For the curious, you can also sign in with a temporary
+    <%= link_to "demo account", demo_init_path, method: "post", rel: "nofollow" %>
+    and have a look around
+<% end %>

@@ -18,4 +18,5 @@ Welcome, <%= current_user.name %>!
 You are a member of <%= link_to "#{@group_count} groups", user_groups_path %>.
 <br />
 <br />
-
+For the merely curious, you can also sign in with a temporary
+  <%= link_to "demo account", demo_init_path, method: "post", rel: "nofollow" %>

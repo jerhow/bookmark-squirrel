@@ -34,3 +34,15 @@
 <div>
   <%= link_to 'Home', root_path %>
 </div>
+
+<% if @is_admin %>
+  <div>
+    <br />
+    <h4>Admin functions</h4>
+    <ul>
+      <li>
+        <%= link_to "Purge expired demo users", demo_purge_path, method: "delete", rel: "nofollow", data: { confirm: 'Are you sure?' } %>
+      </li>
+    </ul>
+  </div>
+<% end %>

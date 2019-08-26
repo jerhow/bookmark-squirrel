@@ -5,13 +5,32 @@
 <% end %>
 
 <br />
-<%= image_tag user_avatar(current_user, 50) if !current_user.nil? %>
+<%= link_to image_tag(user_avatar(current_user, 100)), show_user_path, alt: current_user.name %>
 
 <br />
-<br />
 <% if current_user %>
-  You are a member of <%= link_to "#{pluralize(@group_count, 'group')}", user_groups_path %>.
+
+  <p>
+    How to use this app: <br />
+    <ul>
+    <li><i>Groups</i> are collections of bookmarks.<br /></li>
+    <li>Groups can have one or more members.<br /></li>
+    <li>By adding members to our groups, we can share bookmarks.</li>
+    </ul>
+  </p>
+  <p>
+    That's it, in a nutshell :)
+  </p>
+
+  Currently:
+  <ul>
+    <li>You are the owner of <%= pluralize(@group_ownership_count, 'group') %></li>
+    <li>In addition, you are a member of <%= pluralize(@group_membership_count, 'group') %> 
+    belonging to someone else.</li>
+  </ul>
+  <%= link_to "Go to my groups", user_groups_path %>
   <br />
+  or
   <br />
   <%= link_to 'Create a new group', new_group_path %>
   <br />

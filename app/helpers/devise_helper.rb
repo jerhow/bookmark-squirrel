@@ -19,7 +19,7 @@ module DeviseHelper
 
   def demo_msg_helper
     if !session[:demo_email].nil? && !session[:demo_pw].nil?
-      "NOTE: This is a temporary demo account, which will permanently expire in one hour"
+      "NOTE: This is a temporary demo account. It will permanently expire in one hour."
     else
       ""
     end

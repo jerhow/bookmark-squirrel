@@ -12,6 +12,7 @@ module ApplicationHelper
   end
 
   def user_avatar(user, size=50)
+    # This method assumes that current_user has already been validated as being extant (not nil)
     if user.avatar.attached?
       user.avatar.variant(combine_options: {resize: "#{size}x#{size}!"})
     else

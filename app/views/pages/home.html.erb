@@ -15,7 +15,7 @@ Welcome, <%= current_user.name %>!
 <%= link_to 'Create a new group', new_group_path %>
 <br />
 <br />
-You are a member of <%= link_to "#{@group_count} groups", user_groups_path %>.
+You are a member of <%= link_to "#{pluralize(@group_count, 'group')}", user_groups_path %>.
 <br />
 <br />
 For the merely curious, you can also sign in with a temporary

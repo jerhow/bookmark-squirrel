@@ -27,9 +27,11 @@
   Account last updated: <%= current_user.updated_at %>
 </div>
 
-<div>
-  <%= link_to 'Edit', edit_user_registration_path %>
-</div>
+<% if !current_user.demo? %>
+  <div>
+    <%= link_to 'Edit', edit_user_registration_path %>
+  </div>
+<% end %>
 
 <div>
   <%= link_to 'Home', root_path %>

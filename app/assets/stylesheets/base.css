@@ -1,6 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 100%;
+    font-size: 95%;
     height: 100%;
     color: #001f3f;
     /* background-image: linear-gradient(rgb(239, 255, 239), rgb(75, 134, 75)); */
@@ -44,6 +44,7 @@ HR {
     overflow: hidden;
     /*background-color: white;*/
     color: #f0ddd8;
+    /*color: #FDF4E3;*/
     position: fixed;
     top: 0;
     width: 100%;
@@ -55,6 +56,10 @@ HR {
     background-color: #3C3431;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.header a:hover {
+    text-decoration: none;
 }
 
 .footer {
@@ -116,6 +121,11 @@ HR {
     vertical-align: middle;
 }
 
+.header_cell_b a {
+    /*color: #f0ddd8;*/
+    color: #FDF4E3;
+}
+
 .header_cell_c {
     text-align: center;
     overflow: auto;
@@ -123,8 +133,17 @@ HR {
     float: left;
 }
 
+#mastheadTitle {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#mastheadTagline {
+    font-size: .75rem;
+}
+
 #copyright {
-    font-size: .8em;
+    font-size: .8rem;
     color: #000;
 }
 

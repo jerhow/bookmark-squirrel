@@ -16,33 +16,26 @@
     <div id="fixed_header" class="header">
       <div id='functional_row_top'>
           <div id="header_cell_a" class="header_cell_a">
-              <!-- <a href="#" onclick="sd.popUserSettingsModal();" title="User settings"><img 
-                  id='user_icon' alt="User settings" src="{{ .Common.StaticAssetUrlBase }}user-50x50-trans.png" /></a> -->
-                  <!-- <div id='user_icon_label'>Settings</div> -->
-                  <% if !current_user.nil? %>
-                    <%= link_to current_user.name, show_user_path %>
-                  <% else %>
-                    <%= link_to 'Login', new_user_session_path %>
-                  <% end %>
-                  <!-- <div id="nickname"></div> -->
+            <% if !current_user.nil? %>
+              <%= link_to current_user.name, show_user_path %>
+            <% else %>
+              <%= link_to 'Login', new_user_session_path %>
+            <% end %>
           </div>
 
           <div id="header_cell_b" class="header_cell_b">
-              <a href='<%= root_path %>' style="color: #f0ddd8;">
-                <div id='mastheadTitle'>Bookmark Squirrel</div>
-                <div id='mastheadTagline'>Bookmark sharing for hoarders</div>
-              </a>
-              <!-- <div id='mastheadTagline'>Collaborative, sharable bookmark hoarding</div> -->
+            <a href='<%= root_path %>' title="Home">
+              <div id='mastheadTitle'>Bookmark Squirrel</div>
+              <div id='mastheadTagline'>Bookmark sharing for hoarders</div>
+            </a>
+            <!-- <div id='mastheadTagline'>Collaborative, sharable bookmark hoarding</div> -->
           </div>
           
           <div id="header_cell_c" class="header_cell_c">
-              <!-- <a href="#" onclick="sd.logout();" title="Log out"><img 
-                  id='logout_icon' alt="Log out" src="{{ .Common.StaticAssetUrlBase }}logout-door-50x83-trans.png" /></a> -->
-              <!-- <div id="logout_label">logout</div> -->
-              <% if !current_user.nil? %>
-                <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-              <% end %>
-          </div><!-- con_logout -->
+            <% if !current_user.nil? %>
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+            <% end %>
+          </div>
 
       </div> <!-- functional_row_top -->
     </div>
@@ -56,9 +49,7 @@
       <% end %>
       
       <%= yield %>
-    </div> <!-- /outer_content_container -->
-
-    <div style="border-top: 1px solid #bfbfbf; font-size: .85em; text-align: center;">&copy; {{.Common.CopyrightYear}} Technophobic Software</div>
+    </div> <!-- /content container -->
 
     <div id="fixed_footer" class="footer">
         <div id='functional_row_bottom'>
@@ -80,8 +71,6 @@
 
         </div> <!-- functional_row_bottom -->
     </div>
-
-    </div> <!-- "outer_container" -->
 
   </body>
 </html>

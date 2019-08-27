@@ -15,7 +15,7 @@
 
     <div id="fixed_header" class="header">
       <div id='functional_row_top'>
-          <div id="con_user">
+          <div id="header_cell_a" class="header_cell_a">
               <!-- <a href="#" onclick="sd.popUserSettingsModal();" title="User settings"><img 
                   id='user_icon' alt="User settings" src="{{ .Common.StaticAssetUrlBase }}user-50x50-trans.png" /></a> -->
                   <!-- <div id='user_icon_label'>Settings</div> -->
@@ -27,7 +27,7 @@
                   <!-- <div id="nickname"></div> -->
           </div>
 
-          <div id='con_masthead'>
+          <div id="header_cell_b" class="header_cell_b">
               <a href='<%= root_path %>' style="color: #f0ddd8;">
                 <div id='mastheadTitle'>Bookmark Squirrel</div>
                 <div id='mastheadTagline'>Bookmark sharing for hoarders</div>
@@ -35,7 +35,7 @@
               <!-- <div id='mastheadTagline'>Collaborative, sharable bookmark hoarding</div> -->
           </div>
           
-          <div id="con_logout">
+          <div id="header_cell_c" class="header_cell_c">
               <!-- <a href="#" onclick="sd.logout();" title="Log out"><img 
                   id='logout_icon' alt="Log out" src="{{ .Common.StaticAssetUrlBase }}logout-door-50x83-trans.png" /></a> -->
               <!-- <div id="logout_label">logout</div> -->
@@ -46,14 +46,40 @@
 
       </div> <!-- functional_row_top -->
     </div>
-    
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
-    <% flash.each do |key, value| %>
-      <%= content_tag :div, value, class: "flash #{key}" %>
-    <% end %>
-    
-    <%= yield %>
+    <div id="outer_container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "flash #{key}" %>
+      <% end %>
+      
+      <%= yield %>
+    </div> <!-- /outer_content_container -->
+
+    <div style="border-top: 1px solid #bfbfbf; font-size: .85em; text-align: center;">&copy; {{.Common.CopyrightYear}} Technophobic Software</div>
+
+    <div id="fixed_footer" class="footer">
+        <div id='functional_row_bottom'>
+            <div id="footer_cell_a" class="header_cell_a">
+                &nbsp;
+            </div>
+
+            <div id="footer_cell_b" class="header_cell_b">
+                <div id="">Copyright</div>
+            </div>
+            
+            <div id="footer_cell_c" class="header_cell_c">
+                &nbsp;
+            </div>
+
+            <!-- <br style="clear: left;" /> -->
+
+        </div> <!-- functional_row_bottom -->
+    </div>
+
+    </div> <!-- "outer_container" -->
+
   </body>
 </html>

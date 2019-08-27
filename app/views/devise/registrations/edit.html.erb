@@ -1,64 +1,89 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>User Settings</h2>
+
+<p><%= link_to "&larr; Back to user profile".html_safe, :back %></p>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="user_edit_section">
+    <div class="user_edit_field_1"><%= f.label :email %></div>
+    <div class="user_edit_field_2">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="user_edit_section">
+    <div class="user_edit_field_1"><%= f.label :name %></div>
+    <div class="user_edit_field_2"><%= f.text_field :name %></div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+  <div class="user_edit_section">
+    <div class="user_edit_field_1">
+      <%= f.label :password %>
+    </div>
+    <div class="user_edit_field_2">
+      <%= f.password_field :password, autocomplete: "new-password" %> 
+        <i>(leave blank if you don't want to change it)</i>
+      <% if @minimum_password_length %>
+        <br />
+        <!-- <em><%= @minimum_password_length %> characters minimum</em> -->
+      <% end %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="user_edit_section">
+    <div class="user_edit_field_1"><%= f.label :password_confirmation %></div>
+    <div class="user_edit_field_2">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <i>(leave blank if you don't want to change it)</i>
+    </div>
   </div>
 
-  <div class="field">
-    <br />
-    <%= image_tag user_avatar(resource, 100) %>
-    <br /><br />
+  <div class="user_edit_section" style="height: auto;">
+    <div class="user_edit_field_1" style="height: auto;">Avatar</div>
+    <div class="user_edit_field_2" style="height: auto;">
+      <%= image_tag user_avatar(resource, 100) %>
+      <br /><br />
+      <%= f.file_field :avatar %>
+      <br /><br />
+      <%= link_to "Delete photo?", delete_user_avatar_path(resource), 
+        method: :delete, data:{ confirm: 'Are you sure?' } %>
+      <br /><br />
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.file_field :avatar %><br />
-    <br /><br />
-  </div>
+  <br /><br />
 
-  <div class="field">
-    <%= link_to "Delete photo", delete_user_avatar_path(resource), method: :delete, prompt: true %>
-    <br /><br />
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  <div class="user_edit_section">
+    <div class="user_edit_field_1">
+      <%= f.label :current_password %>
+    </div>
+    <div class="user_edit_field_2">
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
+        <i>(we need your current password to confirm your changes)</i>
+    </div>
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update user settings" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<div class="break" style="height: 50px;"></div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<div class="user_edit_section" style="border-top: 2px solid red;">
+  <h3 style="color: red;">Cancel my account</h3>
+  <div class="user_edit_field_1">
+    <%= button_to "Cancel my account", registration_path(resource_name), 
+      data: { confirm: "Are you sure?" }, method: :delete %>
+  </div>
+  <div class="user_edit_field_2">
+    <i>NOTE: Canceling your account is permanent. Your login and data cannot be restored.</i>
+  </div>
+</div>
 
-<%= link_to "Back", :back %>
+<div class="break" style="height: 100px;"></div>

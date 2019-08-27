@@ -150,3 +150,26 @@ HR {
 #copyright a {
     color: #000;
 }
+
+.user_edit_section {
+    /*width: 90%;*/
+    height: 40px;
+    /*background: aqua;*/
+    margin: auto;
+    /*padding: 10px;*/
+    border-top: 2px solid #705446;
+    padding-top: 5px;
+}
+
+.user_edit_field_1 {
+    width: 20%;
+    height: 40px;
+    /*background: red;*/
+    float: left;
+}
+
+.user_edit_field_2 {
+    margin-left: 20%;
+    height: 40px;
+    /*background: black;*/
+}

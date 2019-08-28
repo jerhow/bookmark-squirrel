@@ -139,6 +139,34 @@ HR {
     float: left;
 }
 
+.footer_cell_a {
+    text-align: center;
+    overflow: auto;
+    width: 35%;
+    float: left;
+    border: 0px solid green;
+}
+
+.footer_cell_b {
+    width: 35%;
+    float: left;
+    vertical-align: middle;
+    border: 0px solid green;
+}
+
+.footer_cell_b a {
+    /*color: #f0ddd8;*/
+    color: #FDF4E3;
+}
+
+.footer_cell_c {
+    text-align: center;
+    overflow: auto;
+    width: 20%;
+    float: left;
+    border: 0px solid green;
+}
+
 #mastheadTitle {
     font-size: 1.1rem;
     font-weight: bold;
@@ -150,11 +178,11 @@ HR {
 
 #copyright {
     font-size: .8rem;
-    color: #000;
+    color: #E1C391;
 }
 
 #copyright a {
-    color: #000;
+    color: #E1C391;
 }
 
 .user_edit_section {

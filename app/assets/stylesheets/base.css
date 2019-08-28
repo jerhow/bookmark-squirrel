@@ -53,7 +53,8 @@ HR {
     /* margin: 0 auto; */
     /*background-color: #85ac85;*/
     /*background-color: #633327;*/
-    background-color: #3C3431;
+    /*background-color: #3C3431;*/
+    background-color: #705446;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -73,7 +74,8 @@ HR {
     text-align: center;
     border-top: 1px solid black;
     overflow: hidden;
-    background-color: #705446;
+    /*background-color: #705446;*/
+    background-color: #3C3431;
     /* height: 150px; */
     /* margin: 0 auto; */
     padding-top: 5px;
@@ -111,12 +113,12 @@ HR {
 .header_cell_a {
     text-align: center;
     overflow: auto;
-    width: 20%;
+    width: 38%;
     float: left;
 }
 
 .header_cell_b {
-    width: 60%;
+    width: 22%;
     float: left;
     vertical-align: middle;
 }
@@ -129,7 +131,7 @@ HR {
 .header_cell_c {
     text-align: center;
     overflow: auto;
-    width: 18%;
+    width: 28%;
     float: left;
 }
 

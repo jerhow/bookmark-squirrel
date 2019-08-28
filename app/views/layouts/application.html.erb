@@ -23,10 +23,16 @@
             <% end %>
           </div>
 
-          <div id="header_cell_b" class="header_cell_b">
+          <div id="header_cell_b" class="header_cell_b" style="border: 0px solid red; vertical-align: middle;">
             <a href='<%= root_path %>' title="Home">
-              <div id='mastheadTitle'>Bookmark Squirrel</div>
-              <div id='mastheadTagline'>Bookmark sharing for hoarders</div>
+              <div style="float: left; overflow: hidden; width: 35%; border: 0px solid green;">
+                <%= image_tag("bookmark-squirrel-v1-trans.png", size: "55x80", alt: "Bookmark Squirrel") %>
+              </div>
+              <div style="overflow: hidden; border: 0px solid green; vertical-align: middle;">
+                <div class="break" style="height: 22px;"></div>
+                <div id='mastheadTitle'>Bookmark Squirrel</div>
+                <div id='mastheadTagline'>Bookmark sharing for hoarders</div>
+              </div>
             </a>
             <!-- <div id='mastheadTagline'>Collaborative, sharable bookmark hoarding</div> -->
           </div>

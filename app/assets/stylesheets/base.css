@@ -96,7 +96,7 @@ HR {
     -moz-box-shadow: 7px 17px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 7px 17px 5px 0px rgba(0,0,0,0.75); */
 
-    margin-top: 65px; /* Add a top margin to avoid content overlay */
+    margin-top: 110px; /* Add a top margin to avoid content overlay */
     margin-bottom: 55px;
 }
 

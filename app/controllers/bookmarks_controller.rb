@@ -6,9 +6,16 @@ class BookmarksController < ApplicationController
   end
 
   def show
+    @showing_archived = params['show'] == "archived" ? true : false
+    
     group_id = params[:id]
     @group = Group.find_by(id: group_id)
-    @bookmarks = @group.bookmarks.where(archived: false).order(created_at: :asc) if access_control(@group)
+    
+    if @showing_archived
+      @bookmarks = @group.bookmarks.where(archived: true).order(created_at: :asc) if access_control(@group)
+    else
+      @bookmarks = @group.bookmarks.where(archived: false).order(created_at: :asc) if access_control(@group)
+    end
   end
 
   def new

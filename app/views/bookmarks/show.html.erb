@@ -1,4 +1,10 @@
-<p>Show page</p>
+<% if @showing_archived %>
+  <p>Archived Bookmarks</p>
+  <p><%= link_to 'Hide archived bookmarks', bookmark_path(@group) %></p>
+<% else %>
+  <p>Bookmarks</p>
+  <p><%= link_to 'Show archived bookmarks', bookmark_path(@group, :show => "archived") %></p>
+<% end %>
 
 <p>
   <%= collection_select(:bookmark, :group_id, current_user.get_groups, :id, :title, 
@@ -52,6 +58,11 @@
 
 <%= javascript_tag do %>
 function change_group(group_id) {
-  window.location.href = group_id;
+  var showing_archived = <%= @showing_archived %>;
+  if (showing_archived) {
+    window.location.href = group_id + "?show=archived";
+  } else {
+    window.location.href = group_id;
+  }
 }
 <% end %>

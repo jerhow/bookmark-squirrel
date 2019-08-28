@@ -1,6 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 95%;
+    font-size: 100%;
     height: 100%;
     color: #001f3f;
     /* background-image: linear-gradient(rgb(239, 255, 239), rgb(75, 134, 75)); */
@@ -152,24 +152,29 @@ HR {
 }
 
 .user_edit_section {
-    /*width: 90%;*/
+    width: 100%;
     height: 40px;
-    /*background: aqua;*/
     margin: auto;
-    /*padding: 10px;*/
     border-top: 2px solid #705446;
     padding-top: 5px;
+    margin-bottom: 8px;
 }
 
 .user_edit_field_1 {
     width: 20%;
     height: 40px;
-    /*background: red;*/
     float: left;
 }
 
 .user_edit_field_2 {
     margin-left: 20%;
     height: 40px;
-    /*background: black;*/
+}
+
+input[type=text], input[type=email], input[type=password] {
+  padding: 1px;
+  height: 25px;
+  border: 1px solid #705446;
+  background-color: white;
+  font-size: 1rem;
 }

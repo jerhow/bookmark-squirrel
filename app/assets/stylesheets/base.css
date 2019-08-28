@@ -274,7 +274,7 @@ input[type=text], input[type=email], input[type=password] {
     font-size: .65rem;
 }
 
-.bm_btn_delete {
+.bm_btn_archive {
     float: right;
     border-radius: 2em;
     background-color: rgb(161, 34, 34);

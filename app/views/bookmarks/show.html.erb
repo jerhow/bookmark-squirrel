@@ -39,38 +39,16 @@
     </div>
     
     <div id="action_row_<%= b.id %>" class="bm_action_row">
-      <button id="btn_edit_bm_<%= b.id %>" class="bm_btn_edit">&nbsp;Edit&nbsp;</button>
-      <button id="btn_delete_bm_<%= b.id %>" class="bm_btn_delete">Archive</button>
+      <%= link_to edit_bookmark_path(b) do %>
+        <button id="btn_edit_bm_<%= b.id %>" class="bm_btn_edit">&nbsp;Edit&nbsp;</button>
+      <% end %>
+      <a rel="nofollow" data-method="patch" href="/b/<%= b.id %>/archive"><button 
+        id="btn_delete_bm_<%= b.id %>" class="bm_btn_archive">Archive</button></a>
     </div>
 
   </div>
 <% end %>
 </div>
-
-<table class="u-full-width">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>URL</th>
-      <th>Desc</th>
-      <th>Created</th>
-      <th>&nbsp;</th>
-      <th>&nbsp;</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bookmarks.each do |b| %>
-    <tr>
-      <td><%= b.title %></td>
-      <td><%= b.url %></td>
-      <td><%= b.desc %></td>
-      <td><%= b.created_at.strftime("%m/%d/%Y") %></td>
-      <td><%= link_to 'Edit', action: "edit", id: b.id %></td>
-      <td><a rel="nofollow" data-method="patch" href="/b/<%= b.id %>/archive">Archive</a></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <%= javascript_tag do %>
 function change_group(group_id) {

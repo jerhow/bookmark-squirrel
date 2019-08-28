@@ -214,7 +214,42 @@ input[type=text], input[type=email], input[type=password] {
 }
 
 /* ======================================================================================= */
-/* Bookmark show page experiment */
+/* Bookmark show page */
+
+#bm_page_top_container {
+    margin: auto; 
+    padding-top: 20px; 
+    padding-bottom: 25px; 
+    width: 100%; 
+    border: 0px solid red;
+}
+
+#bm_page_top_cell_a {
+    font-size: 1.25rem; 
+    font-weight: bold; 
+    float: left; 
+    width: 32%; 
+    border: 0px solid red;
+}
+
+#bm_page_top_cell_b {
+    font-size: .85rem; 
+    float: left; 
+    width: 28%; 
+    border:px solid red; 
+    text-align: center;
+}
+
+#bm_page_top_cell_c {
+    float: left; 
+    width: 39%; 
+    border: 0px solid red; 
+    text-align: right;
+}
+
+#bm_page_top_cell_c span {
+    font-size: .85rem;
+}
 
 .bm_row {
     border-top: 1px solid black;

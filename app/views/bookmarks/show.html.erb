@@ -6,6 +6,47 @@
     html_options = { :onchange => "change_group(this.value);" }) %>
 </p>
 
+<div id="bm_container">
+<% @bookmarks.each do |b| %>
+  <div id="bm_<%= b.id %>" class="bm_row">
+    
+    <div id="column_left_<%= b.id %>" class="bm_column_left">
+      <div id="bm_title_<%= b.id %>" class="bm_title_display"><%= b.title %></div>
+    </div>
+    
+    <div id="column_right_<%= b.id %>" class="bm_column_right">
+      <div id="bm_created_at_80" class="bm_created_at_display">
+        Created on <%= b.created_at.strftime("%m/%d/%Y") %>
+      </div>
+    </div> <!-- column_right_* -->
+
+    <div class="clear"></div>
+    
+    <div class="break" style="height: 5px;"></div>
+
+    <div id="bm_url_row_<%= b.id %>" class="bm_url_row">
+      <%= b.url %>
+    </div>
+    
+    <div class="break" style="height: 5px;"></div>
+
+    <div class="clear"></div>
+    
+    <div id="bm_desc_row_<%= b.id %>" class="bm_desc_row">
+      <div id="bm_desc_text_<%= b.id %>" class="bm_desc_text">
+        <span class="bm_desc_display_label">Description:</span> <%= b.desc %>
+      </div>
+    </div>
+    
+    <div id="action_row_<%= b.id %>" class="bm_action_row">
+      <button id="btn_edit_bm_<%= b.id %>" class="bm_btn_edit">&nbsp;Edit&nbsp;</button>
+      <button id="btn_delete_bm_<%= b.id %>" class="bm_btn_delete">Archive</button>
+    </div>
+
+  </div>
+<% end %>
+</div>
+
 <table class="u-full-width">
   <thead>
     <tr>

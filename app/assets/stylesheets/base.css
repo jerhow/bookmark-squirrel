@@ -344,6 +344,15 @@ input[type=text], input[type=email], input[type=password] {
     color: white;
     font-size: .65rem;
 }
+
+.bm_btn_restore {
+    float: left;
+    border-radius: 2em;
+    background-color: rgb(46, 120, 190);
+    color: white;
+    font-size: .65rem;
+    margin-top: 5px;
+}
 /* ======================================================================================= */
 
 @media screen and (min-width: 275px) and (max-width: 767px) { 

@@ -50,11 +50,7 @@
     </div>
     
     <div id="action_row_<%= b.id %>" class="bm_action_row">
-      <%= link_to edit_bookmark_path(b) do %>
-        <button id="btn_edit_bm_<%= b.id %>" class="bm_btn_edit">&nbsp;Edit&nbsp;</button>
-      <% end %>
-      <a rel="nofollow" data-method="patch" href="/b/<%= b.id %>/archive"><button 
-        id="btn_delete_bm_<%= b.id %>" class="bm_btn_archive">Archive</button></a>
+      <%= action_row @showing_archived, b %>
     </div>
 
   </div>

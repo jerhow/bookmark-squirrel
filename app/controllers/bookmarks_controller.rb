@@ -78,7 +78,25 @@ class BookmarksController < ApplicationController
         end
       end
     end
-    
+  end
+
+  def restore
+    bookmark = Bookmark.find_by(id: params[:id])
+    group = bookmark.group
+    group_id = group.id
+
+    respond_to do |format|
+      # Only proceed if this bookmark is rightly owned by a group that this user is a member of.
+      if group.users.where(id: current_user.id).count == 1
+        if bookmark.update!(archived: false)
+          flash[:success] = "Bookmark was successfully restored"
+          format.html { redirect_to action: "show", id: group_id }
+        else
+          flash[:failure] = "Oops, something went wrong when we tried to restore this bookmark"
+          format.html { redirect_to action: "show", id: group_id }
+        end
+      end
+    end
   end
 
   private

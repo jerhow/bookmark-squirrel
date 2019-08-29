@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :bookmarks, path: 'b'
   patch 'b/:id/archive', to: 'bookmarks#archive', as: 'archive_bookmark'
+  patch 'b/:id/restore', to: 'bookmarks#restore', as: 'restore_bookmark'
   get 'user/profile', to: 'users#show', as: 'show_user'
   resources :groups, path: 'g'
   delete 'g/:group_id/:user_id', to: 'groups#delete_user', as: 'delete_user_from_group'

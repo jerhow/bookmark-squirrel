@@ -214,6 +214,29 @@ input[type=text], input[type=email], input[type=password] {
 }
 
 /* ======================================================================================= */
+/* Group show page */
+
+#groups_container {}
+
+.group_row {
+    border-top: 1px solid #3C3431;
+    padding-top: 3px;
+    padding-bottom: 20px;
+    /*padding-left: 3px;
+    padding-right: 3px;*/
+    overflow: auto;
+}
+
+.group_title {}
+
+.group_created_at {}
+
+.group_edit {}
+
+/* /Group show page */
+/* ======================================================================================= */
+
+/* ======================================================================================= */
 /* Bookmark show page */
 
 #bm_page_top_container {
@@ -353,6 +376,7 @@ input[type=text], input[type=email], input[type=password] {
     font-size: .65rem;
     margin-top: 5px;
 }
+/* /Bookmark show page */
 /* ======================================================================================= */
 
 @media screen and (min-width: 275px) and (max-width: 767px) { 

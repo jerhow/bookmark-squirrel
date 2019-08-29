@@ -1,13 +1,21 @@
-<br /><br />
+<h3>My Groups (<%= @groups.count %>)</h3>
 
-<h3>Groups</h3>
-
-<br />
+<div id="groups_container">
 
 <% @groups.each do |g| %>
-  <div><%= link_to g.title, :controller => 'bookmarks', :action => 'show', :id => g.id %></div>
-  <div>Created on <%= g.created_at.strftime("%m/%d/%Y") %></div>
-  <div><%= edit_group_link current_user, g %></div>
-  <div><%= @group_user_counts[g.id] %></div>
-  <br /><br />
+  <div id="group_<%= g.id %>" class="group_row">
+  
+    <div id="title_<%= g.id %>" class="group_title">
+      <%= link_to g.title, :controller => 'bookmarks', :action => 'show', :id => g.id %>
+    </div>
+    
+    <div id="created_at_<%= g.id %>" class="group_created_at">Created on <%= g.created_at.strftime("%m/%d/%Y") %></div>
+    
+    <div id="edit_<%= g.id %>" class="group_edit"><%= edit_group_link current_user, g %></div>
+
+    <div id="count_<%= g.id %>" class="group_user_count"><%= g.users.count %> users in this group</div>
+
+  </div>
 <% end %>
+
+</div>

@@ -1,9 +1,9 @@
 <div id="bm_page_top_container">
   <% if @showing_archived %>
-    <div id="bm_page_top_cell_a">Archived Bookmarks</div>
+    <div id="bm_page_top_cell_a">Archived Bookmarks (<%= @bookmarks.count %>)</div>
     <div id="bm_page_top_cell_b"><%= link_to 'Hide archived', bookmark_path(@group) %></div>
   <% else %>
-    <div id="bm_page_top_cell_a">Bookmarks</div>
+    <div id="bm_page_top_cell_a">Bookmarks (<%= @bookmarks.count %>)</div>
     <div id="bm_page_top_cell_b"><%= link_to 'Show archived', bookmark_path(@group, :show => "archived") %></div>
   <% end %>
 

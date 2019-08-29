@@ -8,5 +8,6 @@
   <div><%= link_to g.title, :controller => 'bookmarks', :action => 'show', :id => g.id %></div>
   <div>Created on <%= g.created_at.strftime("%m/%d/%Y") %></div>
   <div><%= edit_group_link current_user, g %></div>
+  <div><%= g.users.count %></div>
   <br /><br />
 <% end %>

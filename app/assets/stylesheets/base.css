@@ -117,12 +117,12 @@ HR {
 .header_cell_a {
     text-align: center;
     overflow: auto;
-    width: 38%;
+    width: 30%;
     float: left;
 }
 
 .header_cell_b {
-    width: 22%;
+    width: 33%;
     float: left;
     vertical-align: middle;
 }
@@ -135,7 +135,7 @@ HR {
 .header_cell_c {
     text-align: center;
     overflow: auto;
-    width: 28%;
+    width: 35%;
     float: left;
 }
 

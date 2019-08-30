@@ -231,7 +231,13 @@ input[type=text], input[type=email], input[type=password] {
 
 .group_created_at {}
 
-.group_edit {}
+.group_btn_edit {
+    float: left;
+    border-radius: 2em;
+    background-color: #57ab57;
+    color: white;
+    font-size: .65rem;
+}
 
 /* /Group show page */
 /* ======================================================================================= */

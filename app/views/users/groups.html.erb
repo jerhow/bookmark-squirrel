@@ -6,14 +6,14 @@
   <div id="group_<%= g.id %>" class="group_row">
   
     <div id="title_<%= g.id %>" class="group_title">
-      <%= link_to g.title, :controller => 'bookmarks', :action => 'show', :id => g.id %>
+      <%= link_to g.title, bookmark_path(g), title: "Click to view this group of bookmarks" %>
     </div>
     
     <div id="created_at_<%= g.id %>" class="group_created_at">Created on <%= g.created_at.strftime("%m/%d/%Y") %></div>
-    
-    <div id="edit_<%= g.id %>" class="group_edit"><%= edit_group_link current_user, g %></div>
 
     <div id="count_<%= g.id %>" class="group_user_count"><%= @group_user_counts[g.id] %> users in this group</div>
+
+    <div id="edit_<%= g.id %>" class="group_btn_edit"><%= manage_group_button current_user, g %></div>
 
   </div>
 <% end %>

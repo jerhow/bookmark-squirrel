@@ -20,14 +20,6 @@ module ApplicationHelper
     end
   end
 
-  def edit_group_link(user, group)
-    if group.owner_user_id == current_user.id
-      link_to 'Manage this group', :controller => 'groups', :action => 'edit', :id => group.id
-    else
-      ''
-    end
-  end
-
   def demo_user_name(name)
     if name.match(/^demo_/)
       "Demo User"

@@ -13,7 +13,7 @@
     
     <div id="edit_<%= g.id %>" class="group_edit"><%= edit_group_link current_user, g %></div>
 
-    <div id="count_<%= g.id %>" class="group_user_count"><%= g.users.count %> users in this group</div>
+    <div id="count_<%= g.id %>" class="group_user_count"><%= @group_user_counts[g.id] %> users in this group</div>
 
   </div>
 <% end %>

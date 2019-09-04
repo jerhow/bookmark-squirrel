@@ -185,13 +185,19 @@ HR {
     color: #E1C391;
 }
 
+.submit_button {
+    font-size: 1rem;
+}
+
 .user_edit_section {
     width: 100%;
-    height: 40px;
+    height: auto;
     margin: auto;
-    border-top: 2px solid #705446;
-    padding-top: 5px;
-    margin-bottom: 8px;
+    border-top: 1px dashed #705446;
+    margin-top: 7px;
+    padding-top: 7px;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .user_edit_field_1 {
@@ -205,13 +211,13 @@ HR {
     height: 40px;
 }
 
-input[type=text], input[type=email], input[type=password] {
-  padding: 1px;
-  height: 25px;
-  border: 1px solid #705446;
-  background-color: white;
-  font-size: 1rem;
+.user_edit_field_message {
+    font-size: .85rem; 
+    font-style: italic; 
+    /*margin-left: 10px;*/
 }
+
+
 
 /* ======================================================================================= */
 /* Group show page */
@@ -407,11 +413,27 @@ input[type=text], input[type=email], input[type=password] {
         width: 100%;
         /* border-color: blue; */
     }
+
+    input[type=text], input[type=email], input[type=password] {
+      padding: 0px;
+      height: 20px;
+      border: 1px solid #705446;
+      background-color: white;
+      font-size: .9rem;
+    }
 }
 
 @media screen and (min-width: 768px) { 
     #outer_container, #functional_row_top, #functional_row_bottom {
         width: 768px;
         /* border-color: red; */
+    }
+
+    input[type=text], input[type=email], input[type=password] {
+      padding: 1px;
+      height: 25px;
+      border: 1px solid #705446;
+      background-color: white;
+      font-size: 1rem;
     }
 }

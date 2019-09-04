@@ -29,10 +29,11 @@
       </div>
       <div class="user_edit_field_2">
         <%= f.password_field :password, autocomplete: "new-password" %> 
-          <i>(leave blank if you don't want to change it)</i>
-        <% if @minimum_password_length %>
           <br />
-          <!-- <em><%= @minimum_password_length %> characters minimum</em> -->
+          <span class="user_edit_field_message">(leave blank if you don't want to change it)</span>
+        <% if @minimum_password_length %>
+          <!-- <br />
+          <em><%= @minimum_password_length %> characters minimum</em> -->
         <% end %>
       </div>
     </div>
@@ -41,7 +42,6 @@
       <div class="user_edit_field_1"><%= f.label :password_confirmation %></div>
       <div class="user_edit_field_2">
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-          <i>(leave blank if you don't want to change it)</i>
       </div>
     </div>
 
@@ -72,25 +72,27 @@
       </div>
       <div class="user_edit_field_2">
         <%= f.password_field :current_password, autocomplete: "current-password" %>
-          <i>(your current password is required to make changes to your profile)</i>
+          <br />
+          <span class="user_edit_field_message">(this is required to make changes to your profile)</span>
       </div>
     </div>
 
     <div class="actions">
-      <%= f.submit "Update user settings" %>
+      <%= f.submit "Update user settings", class: "submit_button", style: "margin-top: 15px;" %>
     </div>
   <% end %>
 
   <div class="break" style="height: 50px;"></div>
 
-  <div class="user_edit_section" style="border-top: 2px solid red;">
+  <div class="user_edit_section" style="border-top: 2px dotted red;">
     <h3 style="color: red;">Cancel your account?</h3>
     <div class="user_edit_field_1">
       <%= button_to "Yes, cancel my account", registration_path(resource_name), 
+        style: "color: red; font-size: .85rem;", 
         data: { confirm: "Are you sure?" }, method: :delete %>
     </div>
-    <div class="user_edit_field_2">
-      <i>NOTE: Canceling your account is permanent. Your login and data cannot be restored.</i>
+    <div class="user_edit_field_message" style="clear: both;">
+      NOTE: Canceling your account is permanent. Your login and data cannot be restored.
     </div>
   </div>
 

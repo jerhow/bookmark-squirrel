@@ -1,13 +1,13 @@
-<br /><br />
-
 <% if current_user %>
   Welcome, <%= demo_user_name current_user.name %>!
 <% end %>
 
+<% if current_user %>
 <br />
-<%= link_to(image_tag(user_avatar(current_user, 100)), show_user_path, alt: current_user.name) if !current_user.nil? %>
+<%= link_to(image_tag(user_avatar(current_user, 75)), show_user_path, alt: current_user.name) if !current_user.nil? %>
+<% end %>
 
-<br />
+<!-- <br /> -->
 <% if current_user %>
 
   <p>
@@ -15,12 +15,15 @@
     <ul>
     <li><i>Groups</i> are collections of bookmarks.<br /></li>
     <li>Groups can have one or more members.<br /></li>
-    <li>By adding members to our groups, we can share bookmarks.</li>
+    <li>By adding members to our groups, we can share bookmarks with those members.</li>
     </ul>
   </p>
   <p>
     That's it, in a nutshell :)
   </p>
+
+  <br />
+  <div style="width: 25%; text-align: left;"><hr></div>
 
   Currently:
   <ul>
@@ -34,15 +37,25 @@
   <br />
   <%= link_to 'Create a new group', new_group_path %>
   <br />
-<br />
 <% end %>
 
+<% if !current_user %>
+<br />
+<p>Hello there!</p>
+<p>
+  <b>Bookmark Squirrel</b> is an app for storing bookmarks, organizing them into groups, and sharing them with others.
+  It is free to use, and requires no personal information other than an email address.
+</p>
+<% end %>
+
+<br />
+<div style="width: 25%; text-align: left;"><hr></div>
 <%= login_helper %>
-<br />
-<br />
 
 <% if !current_user %>
-  For the curious, you can also sign in with a temporary
-    <%= link_to "demo account", demo_init_path, method: "post", rel: "nofollow" %>
-    and have a look around
+  <p>
+    For the curious, you can also sign in with a temporary
+      <%= link_to "demo account", demo_init_path, method: "post", rel: "nofollow" %>
+      and have a look around.
+  </p>
 <% end %>

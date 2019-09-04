@@ -11,7 +11,7 @@ class User < ApplicationRecord
   after_initialize :set_defaults
 
   def set_defaults
-    self.profile_image ||= Placeholder.image_generator(width: '150', height: '150')
+    self.profile_image ||= Placeholder.image_generator(width: '75', height: '75')
   end
 
   def get_groups

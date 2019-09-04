@@ -185,6 +185,11 @@ HR {
     color: #E1C391;
 }
 
+.box {
+   display: flex;
+   align-items: center;
+}
+
 .submit_button {
     font-size: 1rem;
 }
@@ -218,16 +223,11 @@ HR {
 .user_edit_field_message {
     font-size: .85rem; 
     font-style: italic; 
-    /*margin-left: 10px;*/
 }
 
-/* ======================================================================================= */
-/* Login page */
 .login_field {
     margin-bottom: 10px;
 }
-/* /Login page */
-/* ======================================================================================= */
 
 /* ======================================================================================= */
 /* Group show page */

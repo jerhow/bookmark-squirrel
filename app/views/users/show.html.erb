@@ -30,11 +30,9 @@
 
 <div class="break" style="height: 10px;"></div>
 
-<% if !current_user.demo? %>
-  <div>
-    <%= link_to 'Edit your profile', edit_user_registration_path %>
-  </div>
-<% end %>
+<div>
+  <%= link_to 'Edit your profile', edit_user_registration_path %>
+</div>
 
 <% if @is_admin %>
   <div>

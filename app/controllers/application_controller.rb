@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
 
   def demo_user_no_editing
     if (params["action"] == "edit" || params["action"] == "update") && current_user.demo?
+      flash[:notice] = "This profile belongs to a demo account and cannot be edited."
       redirect_to show_user_path
     end
   end

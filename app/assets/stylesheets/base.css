@@ -3,7 +3,6 @@ body {
     font-size: 100%;
     height: 100%;
     color: #001f3f;
-    /* background-image: linear-gradient(rgb(239, 255, 239), rgb(75, 134, 75)); */
     width: 100%;
     margin: 0;
     padding: 0;
@@ -46,18 +45,12 @@ HR {
 
 .header {
     overflow: hidden;
-    /*background-color: white;*/
     color: #f0ddd8;
-    /*color: #FDF4E3;*/
     position: fixed;
     top: 0;
     width: 100%;
     text-align: center;
     border-bottom: 1px solid black;
-    /* margin: 0 auto; */
-    /*background-color: #85ac85;*/
-    /*background-color: #633327;*/
-    /*background-color: #3C3431;*/
     background-color: #705446;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -73,15 +66,10 @@ HR {
     bottom: 0;
     width: 100%;
     background-color: white;
-    /*color: black;*/
-    color: #fff;
     text-align: center;
     border-top: 1px solid black;
     overflow: hidden;
-    /*background-color: #705446;*/
     background-color: #3C3431;
-    /* height: 150px; */
-    /* margin: 0 auto; */
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -89,14 +77,7 @@ HR {
 #outer_container {
     width: 100%;
     margin: 0 auto;
-    /*text-align: center;*/
-    /*background-color: rgb(239, 255, 239);*/
-    /* background-image: linear-gradient(rgb(239, 255, 239), rgb(91, 134, 91)); */
-    /* -webkit-box-shadow: 7px 17px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 7px 17px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 7px 17px 5px 0px rgba(0,0,0,0.75); */
-
-    margin-top: 110px; /* Add a top margin to avoid content overlay */
+    margin-top: 110px;
     margin-bottom: 55px;
 }
 
@@ -128,7 +109,6 @@ HR {
 }
 
 .header_cell_b a {
-    /*color: #f0ddd8;*/
     color: #FDF4E3;
 }
 
@@ -155,7 +135,6 @@ HR {
 }
 
 .footer_cell_b a {
-    /*color: #f0ddd8;*/
     color: #FDF4E3;
 }
 
@@ -315,21 +294,11 @@ HR {
 
 .bm_row {
     border-top: 1px solid #3C3431;
-    
-    /* width: 90%; */
-
-    /* margin: 15px; */
-
     padding-top: 3px;
     padding-bottom: 10px;
     padding-left: 3px;
     padding-right: 3px;
-
-    /* display: block; */
-    /* margin-left: auto;
-    margin-right: auto; */
     overflow: auto;
-    /*background-color: #fff;*/
 }
 
 .bm_column_left {
@@ -337,7 +306,6 @@ HR {
     float: left;
     width: 70%;
     text-align: left;
-    /* font-size: .75rem; */
     height: auto;
 }
 
@@ -346,13 +314,11 @@ HR {
     float: right;
     width: 29%;
     text-align: right;
-    /* font-size: .75rem; */
     height: auto;
 }
 
 .bm_title_display {
     font-size: .95rem;
-    /*text-decoration: underline;*/
 }
 
 .bm_created_at_display {
@@ -421,7 +387,6 @@ HR {
 @media screen and (min-width: 275px) and (max-width: 767px) { 
     #outer_container, #functional_row_top, #functional_row_bottom {
         width: 100%;
-        /* border-color: blue; */
     }
 
     input[type=text], input[type=email], input[type=password] {
@@ -436,7 +401,6 @@ HR {
 @media screen and (min-width: 768px) { 
     #outer_container, #functional_row_top, #functional_row_bottom {
         width: 768px;
-        /* border-color: red; */
     }
 
     input[type=text], input[type=email], input[type=password] {

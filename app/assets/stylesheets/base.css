@@ -56,6 +56,10 @@ HR {
     padding-bottom: 5px;
 }
 
+.header a {
+    color: #FDF4E3;
+}
+
 .header a:hover {
     text-decoration: none;
 }

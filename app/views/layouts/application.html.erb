@@ -19,7 +19,7 @@
             <% if !current_user.nil? %>
               <%= link_to user_name(current_user.name), show_user_path %>
             <% else %>
-              <%= link_to 'Login', new_user_session_path %>
+              &nbsp;
             <% end %>
           </div>
 

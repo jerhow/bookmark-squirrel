@@ -2,6 +2,8 @@
 
 <h3>My Groups (<%= @groups.count %>)</h3>
 
+<p><%= link_to 'Create a new group', new_group_path %></p>
+
 <div id="groups_container">
 
 <% @groups.each do |g| %>

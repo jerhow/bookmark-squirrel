@@ -8,9 +8,8 @@
     <div id="title_<%= g.id %>" class="group_title">
       <%= link_to g.title, bookmark_path(g), title: "Click to view this group of bookmarks" %> 
       <span id="group_user_count_<%= g.id %>" 
-        class="group_user_count">(<%= pluralize(@group_user_counts[g.id], "member") %>)</span>
-      <!-- <span id="group_ownership_<%= g.id %>" 
-        class="group_ownership">(<%= group_ownership_text g, current_user %>)</span> -->
+        class="group_user_count">(<%= pluralize(@group_user_counts[g.id], "member") %>, 
+        <%= pluralize(@group_bookmark_counts[g.id], "bookmark") %>)</span>
     </div>
     
     <div id="created_at_<%= g.id %>" 

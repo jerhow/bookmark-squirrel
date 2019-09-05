@@ -20,7 +20,7 @@ module ApplicationHelper
     end
   end
 
-  def demo_user_name(name)
+  def user_name(name)
     if name.match(/^demo_/)
       "Demo User"
     else

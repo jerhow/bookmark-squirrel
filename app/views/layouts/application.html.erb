@@ -16,11 +16,15 @@
     <div id="fixed_header" class="header">
       <div id='functional_row_top'>
           <div id="header_cell_a" class="header_cell_a">
-            <% if !current_user.nil? %>
-              <%= link_to user_name(current_user.name), show_user_path %>
-            <% else %>
-              &nbsp;
-            <% end %>
+
+            <div class="break" style="height: 10px;"></div>
+
+            <%= link_to "Home", root_path, title: "Home" %>
+
+            <div class="break" style="height: 10px;"></div>
+
+            <%= link_to "Groups", user_groups_path, title: "Groups" %>            
+          
           </div>
 
           <div id="header_cell_b" class="header_cell_b" style="border: 0px solid red; vertical-align: middle;">
@@ -36,8 +40,18 @@
             </a>
             <!-- <div id='mastheadTagline'>Collaborative, sharable bookmark hoarding</div> -->
           </div>
+
+          <div class="break" style="height: 10px;"></div>
           
           <div id="header_cell_c" class="header_cell_c">
+            <% if !current_user.nil? %>
+              <%= link_to "My Profile", show_user_path %>
+            <% else %>
+              &nbsp;
+            <% end %>
+
+            <div class="break" style="height: 10px;"></div>
+
             <% if !current_user.nil? %>
               <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
             <% end %>

@@ -33,6 +33,7 @@ class GroupsController < ApplicationController
     group_id = params[:id]
     @group = Group.find_by(id: group_id)
     @users_in_group = @group.users.order(name: :asc) if access_control(@group)
+    @i = 0 # used in the template loop
   end
 
   def update

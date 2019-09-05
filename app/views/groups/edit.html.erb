@@ -1,5 +1,6 @@
-<br /><br />
-<h1>Manage this group</h1>
+<%= link_to "&larr; Back".html_safe, user_groups_path %>
+
+<h3>Manage this group</h3>
 
 <%= render 'form', group: @group %>
 
@@ -9,24 +10,41 @@
 
 <hr />
 
-<h3>Users:</h3>
-
 <p>Users currently in this group:</p>
 
 <% @users_in_group.each do |u| %>
-  <div>
-    <%= image_tag user_avatar(u, 75) %>
-    <br />
-    <%= u.name %>
-    <br />
-    <%= tag.a("Remove", 
-              href: "/g/#{@group.id}/#{u.id}", 
-              rel: "nofollow", 
-              data: {
-                method: "delete", 
-                confirm: "Are you sure you want to remove '#{u.name}' from this group?"}) if u.id != current_user.id %>
-    <br /><br />
-  </div>
-<% end %>
 
-<%= link_to 'Back', bookmarks_path %>
+  <% if @i % 3 == 0 %>
+    <div class="box" style="border: 0px dashed black; padding: 5px;">
+  <% end %>
+    
+      <div style="margin-left: 10px; margin-right: 10px; margin-bottom: 10px;">
+    
+        <%= image_tag user_avatar(u, 75) %>
+        <br />
+    
+        <%= u.name %>
+        <br />
+    
+        <span style="font-size: .8rem;">
+          <% if u.id != current_user.id %>
+            <%= tag.a("Remove", 
+                  href: "/g/#{@group.id}/#{u.id}", 
+                  rel: "nofollow", 
+                  data: {
+                    method: "delete", 
+                    confirm: "Are you sure you want to remove '#{u.name}' from this group?"}) %>
+          <% else %>
+            (You)
+          <% end %>
+        </span>
+    
+      </div>
+      
+      <% @i += 1 %>
+
+  <% if @i % 3 == 0 || @i == @users_in_group.count %>
+    </div>
+  <% end %>
+
+<% end %>

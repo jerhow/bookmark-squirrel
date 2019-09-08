@@ -82,24 +82,28 @@ HR {
     font-size: .9rem;
     font-style: italic;
     color: green;
+    margin-bottom: 10px;
 }
 
 .flash_notice {
     font-size: .9rem;
     font-style: italic;
-    color: black;
+    color: blue;
+    margin-bottom: 10px;
 }
 
 .flash_failure {
     font-size: .9rem;
     font-style: italic;
     color: red;
+    margin-bottom: 10px;
 }
 
 .flash_alert {
     font-size: .9rem;
     font-style: italic;
     color: red;
+    margin-bottom: 10px;
 }
 
 #outer_container {

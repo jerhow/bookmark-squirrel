@@ -15,6 +15,13 @@ class GroupsController < ApplicationController
 
   def create
     group = Group.new(group_params)
+    
+    if group.title.strip == ""
+      flash[:alert] = "Title cannot be blank"
+      redirect_to new_group_path
+      return false
+    end
+
     group.users << current_user
     group.owner_user_id = current_user.id
 
@@ -38,6 +45,12 @@ class GroupsController < ApplicationController
 
   def update
     group = Group.find_by(id: params[:id])
+
+    if group_params['title'].strip == ""
+      flash[:alert] = "Title cannot be blank"
+      redirect_to edit_group_path(group)
+      return false
+    end
 
     if current_user_owns_group?(group)
 
@@ -95,17 +108,20 @@ class GroupsController < ApplicationController
 
       respond_to do |format|
         if user.id == current_user.id
-          flash[:notice] = "'#{email}' is you, and you're already in this group :)"
+          flash[:alert] = "'#{email}' is you, and you're already in this group :)"
           format.html { redirect_to action: "new_user" }
         elsif user_in_group?(user, group)
-          flash[:notice] = "A user with the email '#{email}' is already in this group"
+          flash[:alert] = "A user with the email '#{email}' is already in this group"
           format.html { redirect_to action: "new_user" }
         elsif user_exists?(user)
           group.users << user # The fact that this works is fucking great.
-          flash[:notice] = "User '#{user.name}' has been added to the group"
+          flash[:success] = "User '#{user.name}' has been added to the group"
           format.html { redirect_to action: "edit", id: group.id }
+        elsif email.strip == ""
+          flash[:alert] = "Email cannot be blank"
+          format.html { redirect_to action: "new_user" }
         else
-          flash[:notice] = "Oops, '#{email}' is not a BookmarkSquirrel user, " +
+          flash[:alert] = "Oops, '#{email}' is not a BookmarkSquirrel user, " +
             "which is necessary to be in a group. They should register :)"
           format.html { redirect_to action: "new_user" }
         end

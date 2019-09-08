@@ -30,11 +30,8 @@ class BookmarksController < ApplicationController
     respond_to do |format|
       if bookmark.save
         format.html { redirect_to action: "show", id: group_id }
-        # format.html { redirect_to @bookmark, notice: 'Bookmark was successfully created.' }
-        # format.json { render :show, status: :created, location: @bookmark }
       else
         format.html { render :new }
-        # format.json { render json: @bookmark.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -48,15 +45,25 @@ class BookmarksController < ApplicationController
     bookmark = Bookmark.find_by(id: params[:id])
     group_id = bookmark.group.id
 
+    byebug
+    if bookmark_params['title'].strip == ""
+      flash[:alert] = "Title cannot be blank"
+      redirect_to edit_bookmark_path(bookmark)
+      return false
+    end
+
+    if bookmark_params['url'].strip == ""
+      flash[:alert] = "URL cannot be blank"
+      redirect_to edit_bookmark_path(bookmark)
+      return false
+    end
+
     respond_to do |format|
       if bookmark.update(bookmark_params)
         flash[:success] = "Bookmark was successfully updated"
         format.html { redirect_to action: "show", id: group_id }
-        # format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
-        # format.json { render :show, status: :ok, location: @blog }
       else
         format.html { render :edit }
-        # format.json { render json: @blog.errors, status: :unprocessable_entity }
       end
     end
   end

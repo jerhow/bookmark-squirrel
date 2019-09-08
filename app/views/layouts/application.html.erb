@@ -67,11 +67,11 @@
     <div id="outer_container">
 
       <% flash.each do |key, value| %>
-        <%= content_tag :div, value, class: "flash #{key}" %>
+        <%= content_tag :div, value, class: "flash_#{key}" %>
       <% end %>
       
       <%= yield %>
-    </div> <!-- /content container -->
+    </div> <!-- /outer_container -->
 
     <div id="fixed_footer" class="footer">
         <div id='functional_row_bottom'>

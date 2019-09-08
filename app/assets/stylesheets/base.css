@@ -78,6 +78,30 @@ HR {
     padding-bottom: 5px;
 }
 
+.flash_success {
+    font-size: .9rem;
+    font-style: italic;
+    color: green;
+}
+
+.flash_notice {
+    font-size: .9rem;
+    font-style: italic;
+    color: black;
+}
+
+.flash_failure {
+    font-size: .9rem;
+    font-style: italic;
+    color: red;
+}
+
+.flash_alert {
+    font-size: .9rem;
+    font-style: italic;
+    color: red;
+}
+
 #outer_container {
     width: 100%;
     margin: 0 auto;

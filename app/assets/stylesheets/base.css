@@ -34,7 +34,7 @@ HR {
 }
 
 /*  Can be used to make a vertical spacer. 
-  Just set a 'height=10px' or whatever on the actual div or other element. */
+    Just set a 'height=10px' or whatever on the actual div or other element. */
 .break {
   display: block;
 }
@@ -237,6 +237,16 @@ HR {
 }
 
 .login_field {
+    margin-bottom: 10px;
+}
+
+/* eb == 'edit bookmark' */
+.eb_label {
+    margin-right: 30px;
+    margin-bottom: 10px;
+}
+
+.eb_field {
     margin-bottom: 10px;
 }
 

@@ -44,8 +44,7 @@ class BookmarksController < ApplicationController
   def update
     bookmark = Bookmark.find_by(id: params[:id])
     group_id = bookmark.group.id
-
-    byebug
+    
     if bookmark_params['title'].strip == ""
       flash[:alert] = "Title cannot be blank"
       redirect_to edit_bookmark_path(bookmark)

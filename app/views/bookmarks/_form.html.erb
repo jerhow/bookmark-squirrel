@@ -11,25 +11,43 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="box">
+    <div class="eb_label">
+      <%= form.label :title %>
+    </div>
+    <div class="eb_field" style="margin-left: 20px;">
+      <%= form.text_field :title, style: "width: 400px;" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.text_field :url %>
+  <div class="box">
+    <div class="eb_label">
+      <%= form.label :url %>
+    </div>
+    <div class="eb_field" style="margin-left: 30px;">
+      <%= form.text_field :url, style: "width: 400px;" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :desc %>
-    <%= form.text_area :desc %>
+  <div class="box">
+    <div class="eb_label" style="vertical-align: top;">
+      <%= form.label :desc %>
+    </div>
+    <div class="eb_field" style="margin-left: 13px;">
+      <%= form.text_area :desc, style: "width: 400px; height: 60px; font-size: .9rem;" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :group %>
-    <%= collection_select(:bookmark, :group_id, current_user.get_groups, :id, :title, prompt: true) %>
+  <div class="box">
+    <div class="eb_label">
+      <%= form.label :group %>
+    </div>
+    <div class="eb_field" style="margin-left: 5px;">
+      <%= collection_select(:bookmark, :group_id, current_user.get_groups, :id, :title, prompt: true) %>
+    </div>
   </div>
+
+  <div class="break" style="height: 15px;"></div>
 
   <div class="actions">
     <%= form.submit %>

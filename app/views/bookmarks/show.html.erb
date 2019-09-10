@@ -1,6 +1,9 @@
-<%= link_to 'Create a new bookmark', new_bookmark_path %>
+<div id="bm_page_top_container_a">
+  <%= link_to "&larr; Back".html_safe, user_groups_path %>
+  <%= link_to 'Create a new bookmark', new_bookmark_path %>
+</div>
 
-<div id="bm_page_top_container">
+<div id="bm_page_top_container_b">
 
   <% if @showing_archived %>
     <div id="bm_page_top_cell_a">Archived Bookmarks (<%= @bookmarks.count %>)</div>

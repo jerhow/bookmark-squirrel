@@ -299,13 +299,14 @@ HR {
 /* ======================================================================================= */
 /* Bookmark show page */
 
-.bm_page_top_box {
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
+#bm_page_top_container_a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0px solid red;
 }
 
-#bm_page_top_container {
+#bm_page_top_container_b {
     padding-top: 20px; 
     padding-bottom: 25px; 
     display: flex;

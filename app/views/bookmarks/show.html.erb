@@ -1,4 +1,5 @@
 <div id="bm_page_top_container">
+
   <% if @showing_archived %>
     <div id="bm_page_top_cell_a">Archived Bookmarks (<%= @bookmarks.count %>)</div>
     <div id="bm_page_top_cell_b"><%= link_to 'Hide archived', bookmark_path(@group) %></div>
@@ -7,14 +8,24 @@
     <div id="bm_page_top_cell_b"><%= link_to 'Show archived', bookmark_path(@group, :show => "archived") %></div>
   <% end %>
 
-    <div id="bm_page_top_cell_c">
-      <span>Group: </span>
-      <%= collection_select(:bookmark, :group_id, current_user.get_groups, :id, :title, 
-        options = { :selected => @group.id },
-        html_options = { :onchange => "change_group(this.value);" }) %>
-    </div>
+  <div id="bm_page_top_cell_c">
+    <span>Group: </span>
+    <%= collection_select(:bookmark, :group_id, current_user.get_groups, :id, :title, 
+      options = { :selected => @group.id },
+      html_options = { :onchange => "change_group(this.value);" }) %>
+  </div>
 
-    <br style="clear: left;" />
+  <div id="bm_page_top_cell_d">
+    <span>Sort by: </span>
+    <%= select_tag "sort", options_for_select({ 
+          "Name &darr;".html_safe => "name_asc", 
+          "Name &uarr;".html_safe => "name_desc", 
+          "Created on &darr;".html_safe => "created_asc", 
+          "Created on &uarr;".html_safe => "created_desc" 
+        }, @sorted_by), 
+      :onchange => "sort(this.value);" %>
+  </div>
+
 </div>
 
 <div id="bm_container">
@@ -58,12 +69,27 @@
 </div>
 
 <%= javascript_tag do %>
+
+var showing_archived = <%= @showing_archived %>;
+
 function change_group(group_id) {
-  var showing_archived = <%= @showing_archived %>;
   if (showing_archived) {
     window.location.href = group_id + "?show=archived";
   } else {
     window.location.href = group_id;
   }
 }
+
+function sort(by) {
+  var group_id = "<%= @group.id %>";
+
+  if (showing_archived) {
+    sa_url = "show=archived";
+  } else {
+    sa_url = "";
+  }
+
+  window.location.href = group_id + "?sort=" + by + "&" + sa_url;
+}
+
 <% end %>

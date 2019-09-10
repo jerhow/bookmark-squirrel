@@ -6,13 +6,16 @@ class BookmarksController < ApplicationController
   end
 
   def show
-    if params[:sort] == "name"
-      order_clause = "title ASC";
-      @sorted_by = "Name"
-    else
-      order_clause = "created_at ASC";
-      @sorted_by = "Created on"
-    end
+    sort_options = {
+      "name_asc" => "title ASC",
+      "name_desc" => "title DESC",
+      "created_asc" => "created_at ASC",
+      "created_desc" => "created_at DESC"
+    }
+
+    sort_param = params[:sort] ? params[:sort] : "created_desc"
+    order_clause = sort_options[sort_param]
+    @sorted_by = sort_param
 
     @showing_archived = params[:show] == "archived" ? true : false
     

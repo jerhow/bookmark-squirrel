@@ -17,7 +17,12 @@
 
   <div id="bm_page_top_cell_d">
     <span>Sort by: </span>
-    <%= select_tag "sort", options_for_select([ "Name", "Created on" ], @sorted_by), 
+    <%= select_tag "sort", options_for_select({ 
+          "Name &darr;".html_safe => "name_asc", 
+          "Name &uarr;".html_safe => "name_desc", 
+          "Created on &darr;".html_safe => "created_asc", 
+          "Created on &uarr;".html_safe => "created_desc" 
+        }, @sorted_by), 
       :onchange => "sort(this.value);" %>
   </div>
 
@@ -84,11 +89,7 @@ function sort(by) {
     sa_url = "";
   }
 
-  if(by === "Name") {
-    window.location.href = group_id + "?sort=name&" + sa_url;
-  } else {
-    window.location.href = group_id + "?sort=created&" + sa_url;
-  }
+  window.location.href = group_id + "?sort=" + by + "&" + sa_url;
 }
 
 <% end %>

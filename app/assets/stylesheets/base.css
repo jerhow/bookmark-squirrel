@@ -317,25 +317,13 @@ HR {
 #bm_page_top_cell_a {
     font-size: 1.25rem; 
     font-weight: bold; 
-    /*float: left; 
-    width: 32%; 
-    border: 0px solid red;*/
 }
 
 #bm_page_top_cell_b {
     font-size: .85rem; 
-    /*float: left; 
-    width: 28%; 
-    border: 0px solid red; 
-    text-align: center;*/
 }
 
-#bm_page_top_cell_c {
-    /*float: left; 
-    width: 39%; 
-    border: 0px solid red; 
-    text-align: right;*/
-}
+#bm_page_top_cell_c {}
 
 #bm_page_top_cell_c, #bm_page_top_cell_d span {
     font-size: .85rem;

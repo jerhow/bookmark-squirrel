@@ -361,6 +361,7 @@ HR {
 
 .bm_title_display {
     font-size: .95rem;
+    font-weight: bold;
 }
 
 .bm_created_at_display {

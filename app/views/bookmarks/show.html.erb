@@ -36,7 +36,7 @@
     <div class="break" style="height: 5px;"></div>
 
     <div id="bm_url_row_<%= b.id %>" class="bm_url_row">
-      <%= sanitize link_to nil, b.url %>
+      <%= sanitize( link_to(nil, b.url, target: "_blank" ), attributes: %w(href target) ) %>
     </div>
     
     <div class="break" style="height: 5px;"></div>

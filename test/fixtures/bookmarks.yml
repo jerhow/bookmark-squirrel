@@ -1,11 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  url: MyText
-  desc: MyText
+valid:
+  title: test_bookmark_1
+  url: test://test.test/test
+  group_id: <%= Group.last.id %>
 
-two:
-  title: MyString
-  url: MyText
-  desc: MyText
+missing_title:
+  url: test://test.test/test1
+  group_id: <%= Group.last.id %>
+
+missing_url:
+  title: test_bookmark
+  group_id: <%= Group.last.id %>

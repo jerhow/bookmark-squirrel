@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  email: MyString
+valid:
+  name: test_user_1
+  email: test_1@test.test
 
-two:
-  name: MyString
-  email: MyString
+missing_name:
+  email: test_2@test.test
+
+missing_email:
+  name: test_user_3

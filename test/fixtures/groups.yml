@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
+valid:
+  title: test_group_1
 
-two:
-  title: MyString
+missing_title:
+  owner_user_id: <%= User.last.id %>

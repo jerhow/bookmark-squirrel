@@ -39,7 +39,15 @@ module GroupAccessConcern
       !group.nil?
     end
 
-    def user_can_access_group?(group)
+    def user_can_access_group?(group, user = nil)
+      if defined?(current_user)
+        user = current_user
+      end
+
+      if user.nil?
+        return false
+      end
+
       users = group.users
       user_ids = []
       
@@ -47,7 +55,7 @@ module GroupAccessConcern
         user_ids << u.id
       end
 
-      user_ids.include? current_user.id
+      user_ids.include? user.id
     end
 
     def is_group_owner?(group, user)

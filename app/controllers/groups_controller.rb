@@ -39,6 +39,13 @@ class GroupsController < ApplicationController
   def edit
     group_id = params[:id]
     @group = Group.find_by(id: group_id)
+
+    if !is_group_owner?(@group, current_user)
+      flash[:alert] = "Sorry but you can only manage groups which you own"
+      redirect_to user_groups_path
+      return false
+    end
+
     @users_in_group = @group.users.order(name: :asc) if access_control(@group)
     @i = 0 # used in the template loop
   end

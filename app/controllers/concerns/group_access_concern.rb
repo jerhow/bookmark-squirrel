@@ -49,4 +49,8 @@ module GroupAccessConcern
 
       user_ids.include? current_user.id
     end
+
+    def is_group_owner?(group, user)
+      group.owner_user_id == user.id
+    end
 end

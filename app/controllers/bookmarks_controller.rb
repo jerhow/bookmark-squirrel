@@ -2,7 +2,9 @@ class BookmarksController < ApplicationController
   include GroupAccessConcern
 
   def index
-    @groups = current_user.groups.order(created_at: :asc)
+    # We're not using this route (bookmarks GET /b) for now, 
+    # so just redirect home if it happens to catch a request.
+    redirect_to root_path
   end
 
   def show

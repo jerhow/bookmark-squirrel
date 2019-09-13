@@ -9,60 +9,59 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%= stylesheet_link_tag 'base', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
 
-    <div id="fixed_header" class="header">
-      <div id='functional_row_top'>
-          <div id="header_cell_a" class="header_cell_a">
+    <div id="header_flexbox">
 
-            <div class="break" style="height: 10px;"></div>
+      <div class="nav_link_container">
+      
+        <% if current_user %>
+          <%= link_to "Home", root_path, title: "Home" %>
+        <% end %>
 
-            <% if current_user %>
-              <%= link_to "Home", root_path, title: "Home" %>
-            <% end %>
+        <div class="break" style="height: 20px;"></div>
 
-            <div class="break" style="height: 10px;"></div>
+        <% if current_user %>
+          <%= link_to "Groups", user_groups_path, title: "Groups" %>
+        <% end %>
+      
+      </div>
+      
 
-            <% if current_user %>
-              <%= link_to "Groups", user_groups_path, title: "Groups" %>
-            <% end %>              
-          
+      <div id="logo-text-container">
+          <div id="header-logo"></div>
+          <div id="masthead-container">
+            <div id='masthead-title'>Bookmark Squirrel</div>
+            <div id='masthead-tagline'>Bookmark sharing for hoarders</div>
           </div>
+      </div>
 
-          <div id="header_cell_b" class="header_cell_b" style="border: 0px solid red; vertical-align: middle;">
-            <a href='<%= root_path %>' title="Home">
-              <div style="float: left; overflow: hidden; width: 35%; border: 0px solid green;">
-                <%= image_tag("bs-logo-01.png", size: "55x80", alt: "Bookmark Squirrel") %>
-              </div>
-              <div style="overflow: hidden; border: 0px solid green; vertical-align: middle;">
-                <div class="break" style="height: 22px;"></div>
-                <div id='mastheadTitle'>Bookmark Squirrel</div>
-                <div id='mastheadTagline'>Bookmark sharing for hoarders</div>
-              </div>
-            </a>
-            <!-- <div id='mastheadTagline'>Collaborative, sharable bookmark hoarding</div> -->
-          </div>
+      <div class="nav_link_container">
 
-          <div class="break" style="height: 10px;"></div>
-          
-          <div id="header_cell_c" class="header_cell_c">
-            <% if current_user %>
-              <%= link_to "My Profile", show_user_path %>
-            <% else %>
-              &nbsp;
-            <% end %>
+        <% if current_user %>
+          <%= link_to "My Profile", show_user_path %>
+        <% else %>
+          &nbsp;
+        <% end %>
 
-            <div class="break" style="height: 10px;"></div>
+        <div class="break" style="height: 20px;"></div>
 
-            <% if current_user %>
-              <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-            <% end %>
-          </div>
 
-      </div> <!-- functional_row_top -->
-    </div>
+        <% if current_user %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        <% end %>
+
+      </div>
+
+
+    </div> <!-- /header_flexbox -->
+
+
+
 
     <div id="outer_container">
 

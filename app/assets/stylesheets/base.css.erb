@@ -49,8 +49,15 @@ HR {
 /* Media queries */
 
 @media screen and (min-width: 768px) { 
-    #outer_container, #functional_row_top, #functional_row_bottom {
+    #functional_row_top, #functional_row_bottom {
         width: 768px;
+    }
+
+    #outer_container {
+        width: 768px;
+        margin: 0 auto;
+        margin-top: 100px;
+        margin-bottom: 55px;
     }
 
     input[type=text], input[type=email], input[type=password] {
@@ -97,8 +104,15 @@ HR {
 }
 
 @media screen and (min-width: 275px) and (max-width: 767px) { 
-    #outer_container, #functional_row_top, #functional_row_bottom {
+    #functional_row_top, #functional_row_bottom {
         width: 100%;
+    }
+
+    #outer_container {
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 130px;
+        margin-bottom: 55px;
     }
 
     input[type=text], input[type=email], input[type=password] {
@@ -147,6 +161,10 @@ HR {
 /* ======================================================================================= */
 
 #header_flexbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -171,6 +189,10 @@ HR {
     color: #f0ddd8;
 }
 
+.nav_link_container a:hover {
+    text-decoration: none;
+}
+
 #masthead-title {
     color: #f0ddd8;
     font-size: 1.1rem;
@@ -190,7 +212,7 @@ HR {
 
 
 
-.header {
+/*.header {
     overflow: hidden;
     color: #f0ddd8;
     position: fixed;
@@ -209,7 +231,7 @@ HR {
 
 .header a:hover {
     text-decoration: none;
-}
+}*/
 
 .footer {
     position: fixed;
@@ -251,13 +273,6 @@ HR {
     font-style: italic;
     color: red;
     margin-bottom: 10px;
-}
-
-#outer_container {
-    width: 100%;
-    margin: 0 auto;
-    margin-top: 110px;
-    margin-bottom: 55px;
 }
 
 #functional_row_top {

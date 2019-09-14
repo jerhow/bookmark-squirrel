@@ -12,86 +12,20 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-
   <body>
 
-    <div id="header_flexbox">
+<%= render "shared/app_header" %>
 
-      <div class="nav_link_container">
-      
-        <% if current_user %>
-          <%= link_to "Home", root_path, title: "Home" %>
-        <% end %>
+<div id="outer_container">
 
-        <div class="break" style="height: 20px;"></div>
+  <% flash.each do |key, value| %>
+    <%= content_tag :div, value, class: "flash_#{key}" %>
+  <% end %>
+  
+  <%= yield %>
+</div> <!-- /outer_container -->
 
-        <% if current_user %>
-          <%= link_to "Groups", user_groups_path, title: "Groups" %>
-        <% end %>
-      
-      </div>
-      
-
-      <div id="logo-text-container">
-          <div id="header-logo"></div>
-          <div id="masthead-container">
-            <div id='masthead-title'>Bookmark Squirrel</div>
-            <div id='masthead-tagline'>Bookmark sharing for hoarders</div>
-          </div>
-      </div>
-
-      <div class="nav_link_container">
-
-        <% if current_user %>
-          <%= link_to "My Profile", show_user_path %>
-        <% else %>
-          &nbsp;
-        <% end %>
-
-        <div class="break" style="height: 20px;"></div>
-
-
-        <% if current_user %>
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-        <% end %>
-
-      </div>
-
-
-    </div> <!-- /header_flexbox -->
-
-
-
-
-    <div id="outer_container">
-
-      <% flash.each do |key, value| %>
-        <%= content_tag :div, value, class: "flash_#{key}" %>
-      <% end %>
-      
-      <%= yield %>
-    </div> <!-- /outer_container -->
-
-    <div id="fixed_footer" class="footer">
-        <div id='functional_row_bottom'>
-            <div id="footer_cell_a" class="footer_cell_a">
-                &nbsp;
-            </div>
-
-            <div id="footer_cell_b" class="footer_cell_b">
-                <div id="copyright">
-                  &copy; <%= Time.now.year %> <a href='mailto:jerry@technophobic.org'>Technophobic Software</a>
-                </div>
-            </div>
-            
-            <div id="footer_cell_c" class="footer_cell_c">
-                &nbsp;
-            </div>
-
-            <!-- <br style="clear: left;" /> -->
-
-        </div> <!-- functional_row_bottom -->
-    </div>
+<%= render "shared/app_footer" %>
 
   </body>
 </html>

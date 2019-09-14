@@ -1,0 +1,41 @@
+    <div id="header_flexbox">
+
+      <div class="nav_link_container">
+      
+        <% if current_user %>
+          <%= link_to "Home", root_path, title: "Home" %>
+        <% end %>
+
+        <div class="break" style="height: 20px;"></div>
+
+        <% if current_user %>
+          <%= link_to "Groups", user_groups_path, title: "Groups" %>
+        <% end %>
+      
+      </div>
+      
+      <div id="logo-text-container">
+          <div id="header-logo"></div>
+          <div id="masthead-container">
+            <div id='masthead-title'>Bookmark Squirrel</div>
+            <div id='masthead-tagline'>Bookmark sharing for hoarders</div>
+          </div>
+      </div>
+
+      <div class="nav_link_container">
+
+        <% if current_user %>
+          <%= link_to "My Profile", show_user_path %>
+        <% else %>
+          &nbsp;
+        <% end %>
+
+        <div class="break" style="height: 20px;"></div>
+
+        <% if current_user %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        <% end %>
+
+      </div>
+
+    </div> <!-- /header_flexbox -->

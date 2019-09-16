@@ -235,35 +235,7 @@ HR {
     font-size: .75rem;
 }
 
-
-
-
-
-
-
-
-/*.header {
-    overflow: hidden;
-    color: #f0ddd8;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid black;
-    background-color: #705446;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.header a {
-    color: #FDF4E3;
-}
-
-.header a:hover {
-    text-decoration: none;
-}*/
-
-.footer {
+#footer {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -343,31 +315,16 @@ HR {
     float: left;
 }
 
-.footer_cell_a {
-    text-align: center;
-    overflow: auto;
-    width: 35%;
-    float: left;
-    border: 0px solid green;
+.footer_cell {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-.footer_cell_b {
-    width: 35%;
-    float: left;
-    vertical-align: middle;
-    border: 0px solid green;
-}
-
-.footer_cell_b a {
+.footer_cell a {
     color: #FDF4E3;
-}
-
-.footer_cell_c {
-    text-align: center;
-    overflow: auto;
-    width: 20%;
-    float: left;
-    border: 0px solid green;
 }
 
 #copyright {

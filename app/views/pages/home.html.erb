@@ -7,7 +7,6 @@
 <%= link_to(image_tag(user_avatar(current_user, 75)), show_user_path, alt: current_user.name) if !current_user.nil? %>
 <% end %>
 
-<!-- <br /> -->
 <% if current_user %>
 
   <p>
@@ -31,11 +30,15 @@
     <li>In addition, you are a member of <%= pluralize(@group_membership_count, 'group') %> 
     belonging to someone else.</li>
   </ul>
-  <%= link_to "Go to my groups", user_groups_path %>
-  <br />
-  or
-  <br />
-  <%= link_to 'Create a new group', new_group_path %>
+  <%= link_to user_groups_path do %>
+    <button class="btn_blue medium">Go to my groups</button>
+  <% end %>
+  
+  <div class="break" style="height: 15px;"></div>
+
+  <%= link_to new_group_path do %>
+    <button class="btn_blue medium">Create a new group</button>
+  <% end %>
   <br />
 <% end %>
 
@@ -48,11 +51,12 @@
 </p>
 <% end %>
 
-<br />
-<div style="width: 25%; text-align: left;"><hr></div>
-<%= login_helper %>
-
 <% if !current_user %>
+  <div class="break" style="height: 10px;"></div>
+  <div style="width: 25%; text-align: left;"><hr></div>
+  
+  <%= login_helper %>
+
   <p>
     For the curious, you can also sign in with a temporary
       <%= link_to "demo account", demo_init_path, method: "post", rel: "nofollow" %>

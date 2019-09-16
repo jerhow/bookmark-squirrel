@@ -1,7 +1,7 @@
 <div id="bm_page_top_container_a">
   <%= link_to "&larr; Back".html_safe, user_groups_path %>
   <%= link_to new_bookmark_path do %>
-    <button class="btn_green_m">Create a new bookmark</button>
+    <button class="btn_green medium">Create a new bookmark</button>
   <% end %>
 </div>
 
@@ -9,10 +9,18 @@
 
   <% if @showing_archived %>
     <div id="bm_page_top_cell_a">Archived Bookmarks (<%= @bookmarks.count %>)</div>
-    <div id="bm_page_top_cell_b"><%= link_to 'Hide archived', bookmark_path(@group) %></div>
+    <div id="bm_page_top_cell_b">
+      <%= link_to bookmark_path(@group) do %>
+        <button class="btn_blue medium">Hide archived</button>
+      <% end %>
+    </div>
   <% else %>
     <div id="bm_page_top_cell_a">Bookmarks (<%= @bookmarks.count %>)</div>
-    <div id="bm_page_top_cell_b"><%= link_to 'Show archived', bookmark_path(@group, :show => "archived") %></div>
+    <div id="bm_page_top_cell_b">
+      <%= link_to bookmark_path(@group, :show => "archived") do %>
+        <button class="btn_blue medium">Show archived</button>
+      <% end %>
+    </div>
   <% end %>
 
   <div id="bm_page_top_cell_c">

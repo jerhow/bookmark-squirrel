@@ -7,38 +7,58 @@
 
 <div id="bm_page_top_container_b">
 
-  <% if @showing_archived %>
-    <div id="bm_page_top_cell_a">Archived Bookmarks (<%= @bookmarks.count %>)</div>
-    <div id="bm_page_top_cell_b">
-      <%= link_to bookmark_path(@group) do %>
-        <button class="btn_blue medium">Hide archived</button>
-      <% end %>
-    </div>
-  <% else %>
-    <div id="bm_page_top_cell_a">Bookmarks (<%= @bookmarks.count %>)</div>
-    <div id="bm_page_top_cell_b">
-      <%= link_to bookmark_path(@group, :show => "archived") do %>
-        <button class="btn_blue medium">Show archived</button>
-      <% end %>
-    </div>
-  <% end %>
+  <div id="bm_page_functional_top_row_left">
 
-  <div id="bm_page_top_cell_c">
-    <span>Group: </span>
-    <%= collection_select(:bookmark, :group_id, current_user.get_groups, :id, :title, 
-      options = { :selected => @group.id },
-      html_options = { :onchange => "change_group(this.value);" }) %>
+    <% if @showing_archived %>
+
+      <div id="bm_page_top_cell_a">Archived (<%= @bookmarks.count %>)</div>
+
+      <div class="break" style="height: 15px;"></div>
+
+      <div id="bm_page_top_cell_b">
+        <%= link_to bookmark_path(@group) do %>
+          <button class="btn_blue medium">Hide archived</button>
+        <% end %>
+      </div>
+    
+    <% else %>
+
+      <div id="bm_page_top_cell_a">Bookmarks (<%= @bookmarks.count %>)</div>
+
+      <div class="break" style="height: 15px;"></div>
+
+      <div id="bm_page_top_cell_b">
+        <%= link_to bookmark_path(@group, :show => "archived") do %>
+          <button class="btn_blue medium">Show archived</button>
+        <% end %>
+      </div>
+
+    <% end %>
+
   </div>
 
-  <div id="bm_page_top_cell_d">
-    <span>Sort by: </span>
-    <%= select_tag "sort", options_for_select({ 
-          "Name &darr;".html_safe => "name_asc", 
-          "Name &uarr;".html_safe => "name_desc", 
-          "Created on &darr;".html_safe => "created_asc", 
-          "Created on &uarr;".html_safe => "created_desc" 
-        }, @sorted_by), 
-      :onchange => "sort(this.value);" %>
+  <div id="bm_page_functional_top_row_right">
+
+    <div id="bm_page_top_cell_c">
+      <div class="db_ddl_label">Group: </div>
+      <%= collection_select(:bookmark, :group_id, current_user.get_groups, :id, :title, 
+        options = { :selected => @group.id },
+        html_options = { :onchange => "change_group(this.value);" }) %>
+    </div>
+
+    <div class="break" style="height: 15px;"></div>
+
+    <div id="bm_page_top_cell_d">
+      <div class="db_ddl_label">Sort by: </div>
+      <%= select_tag "sort", options_for_select({ 
+            "Name &darr;".html_safe => "name_asc", 
+            "Name &uarr;".html_safe => "name_desc", 
+            "Created on &darr;".html_safe => "created_asc", 
+            "Created on &uarr;".html_safe => "created_desc" 
+          }, @sorted_by), 
+        :onchange => "sort(this.value);" %>
+    </div>
+
   </div>
 
 </div>

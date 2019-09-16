@@ -131,6 +131,29 @@ HR {
         color: #f0ddd8;
         font-size: .75rem;
     }
+
+    #bm_page_functional_top_row_left {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: center;
+        width: 45%;
+    }
+
+    #bm_page_functional_top_row_right {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: left;
+        width: 50%;
+    }
+
+    .db_ddl_label {
+        font-size: .85rem;
+        font-weight: bold;
+    }
 }
 
 @media screen and (min-width: 275px) and (max-width: 767px) { 
@@ -186,6 +209,30 @@ HR {
         color: #f0ddd8;
         font-size: .9rem;
     }
+
+    #bm_page_functional_top_row_left {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: left;
+        /*border: 1px solid red;*/
+    }
+
+    #bm_page_functional_top_row_right {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: left;
+        /*border: 1px solid red;*/
+    }
+
+    .db_ddl_label {
+        font-size: .85rem;
+        font-weight: bold;
+        clear: right;
+    }
 }
 /* /Media queries */
 /* ======================================================================================= */
@@ -201,18 +248,15 @@ HR {
     justify-content: space-evenly;
     align-items: center;
     background-color: #705446;
-    /*border: 1px solid red;*/
 }
 
 .nav_link_container {
-    /*height: auto;*/
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
     font-size: 1.1rem;
     color: #f0ddd8;
-    /*border: 1px solid red;*/
 }
 
 .nav_link_container a {
@@ -439,16 +483,14 @@ HR {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 0px solid red;
 }
 
 #bm_page_top_container_b {
-    padding-top: 20px; 
-    padding-bottom: 25px; 
+    padding-top: 20px;
+    padding-bottom: 25px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    border: 0px solid red;
 }
 
 #bm_page_top_cell_a {

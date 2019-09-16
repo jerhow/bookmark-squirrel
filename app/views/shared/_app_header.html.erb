@@ -3,13 +3,17 @@
       <div class="nav_link_container">
       
         <% if current_user %>
-          <%= link_to "Home", root_path, title: "Home" %>
+          <%= link_to root_path, title: "Home" do %>
+            <button class="btn_header">Home</button>
+          <% end %>
         <% end %>
 
         <div class="break" style="height: 20px;"></div>
 
         <% if current_user %>
-          <%= link_to "Groups", user_groups_path, title: "Groups" %>
+          <%= link_to user_groups_path, title: "Groups" do %>
+            <button class="btn_header">Groups</button>
+          <% end %>
         <% end %>
       
       </div>
@@ -25,7 +29,9 @@
       <div class="nav_link_container">
 
         <% if current_user %>
-          <%= link_to "My Profile", show_user_path %>
+          <%= link_to show_user_path, title: "My Profile" do %>
+            <button class="btn_header">My Profile</button>
+          <% end %>
         <% else %>
           &nbsp;
         <% end %>
@@ -33,7 +39,9 @@
         <div class="break" style="height: 20px;"></div>
 
         <% if current_user %>
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+          <%= link_to destroy_user_session_path, title: "Logout", method: :delete do %>
+            <button class="btn_header">Logout</button>
+          <% end %>
         <% end %>
 
       </div>

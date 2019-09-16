@@ -2,7 +2,11 @@
 
 <h3>My Groups (<%= @groups.count %>)</h3>
 
-<p><%= link_to 'Create a new group', new_group_path %></p>
+<p>
+<%= link_to new_group_path do %>
+  <button class="btn_green medium">Create a new group</button>
+<% end %>
+</p>
 
 <div id="groups_container">
 
@@ -23,7 +27,7 @@
         <%= group_ownership_text g, current_user %>
     </div>
 
-    <div id="edit_<%= g.id %>" class="group_btn_edit"><%= manage_group_button g, current_user %></div>
+    <div id="edit_<%= g.id %>"><%= manage_group_button g, current_user %></div>
 
   </div>
 <% end %>

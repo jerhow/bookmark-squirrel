@@ -9,24 +9,29 @@
   <br />
 </div>
 
-<table>
-  <tr>
-    <td>Name:</td>
-    <td><%= current_user.name %></td>
-  </tr>
-  <tr>
-    <td>Email:</td>
-    <td><%= current_user.email %></td>
-  </tr>
-  <tr>
-    <td>Created:</td>
-    <td><%= current_user.created_at.strftime("%B %d, %Y") %></td>
-  </tr>
-  <tr>
-    <td>Last updated:</td>
-    <td><%= current_user.updated_at.strftime("%B %d, %Y") %></td>
-  </tr>
-</table>
+<div class="user_profile_row">
+  <span>Name:</span>
+  <span><%= current_user.name %></span>
+</div>
+
+<div class="user_profile_row">
+  <span>Email:</span>
+<% if current_user.demo %>
+  <span>no-reply@bookmarksquirrel.com</span>
+<% else %>
+  <span><%= current_user.email %></span>
+<% end %>
+</div>
+
+<div class="user_profile_row">
+  <span>Created:</span>
+  <span><%= current_user.created_at.strftime("%B %d, %Y") %></span>
+</div>
+
+<div class="user_profile_row">
+  <span>Last updated:</span>
+  <span><%= current_user.updated_at.strftime("%B %d, %Y") %></span>
+</div>
 
 <div class="break" style="height: 10px;"></div>
 

@@ -33,6 +33,13 @@ class BookmarksController < ApplicationController
 
   def create
     bookmark = Bookmark.new(bookmark_params)
+    
+    if bookmark.group_id.nil?
+      flash[:alert] = "Please select a group"
+      redirect_to new_bookmark_path(bookmark)
+      return false
+    end
+    
     group_id = bookmark.group_id
     authorize_access_to_group(group_id)
     

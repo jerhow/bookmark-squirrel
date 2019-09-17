@@ -187,6 +187,10 @@ HR {
     .edit_user_profile_row input[type=text], input[type=email], input[type=password] {
         width: 225px;
     }
+
+    .home_page_action_row {
+        width: 75%;
+    }
 }
 
 @media screen and (min-width: 275px) and (max-width: 767px) { 
@@ -381,6 +385,16 @@ HR {
     font-style: italic;
     color: red;
     margin-bottom: 10px;
+}
+
+.home_page_action_row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
 #functional_row_top {

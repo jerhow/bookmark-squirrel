@@ -31,9 +31,20 @@
     <li>In addition, you are a member of <%= pluralize(@group_membership_count, 'group') %> 
     belonging to someone else</li>
   </ul>
-  <%= link_to user_groups_path do %>
-    <button class="btn_blue medium">Go to my groups</button>
-  <% end %>
+
+  <div class="home_page_action_row">
+
+    <%= link_to user_groups_path do %>
+      <button class="btn_blue large">Go to my groups</button>
+    <% end %>
+
+    <div class="break" style="height: 15px;"></div>
+
+    <%= link_to new_bookmark_path do %>
+      <button class="btn_green large">Create a new bookmark</button>
+    <% end %>
+
+  </div>
 
 <% end %>
 

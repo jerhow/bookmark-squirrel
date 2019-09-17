@@ -1,15 +1,18 @@
 <div style="width: 90%; margin-left: 10px;">
 
-  <h2>User Settings</h2>
+  <div style="font-size: 1.25rem; font-weight: bold;">User Settings</div>
 
   <p><%= link_to "&larr; Back to user profile".html_safe, show_user_path %></p>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="user_edit_section">
-      <div class="user_edit_field_1"><%= f.label :email %></div>
-      <div class="user_edit_field_2">
+    <div class="edit_user_profile_row" style="font-size: .85rem; color: red;">
+      <%= render "devise/shared/error_messages", resource: resource %>
+    </div>
+
+    <div class="edit_user_profile_row">
+      <div><%= f.label :email %></div>
+      <div>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
     </div>
@@ -18,36 +21,42 @@
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
 
-    <div class="user_edit_section">
-      <div class="user_edit_field_1"><%= f.label :name %></div>
-      <div class="user_edit_field_2"><%= f.text_field :name %></div>
+    <div class="edit_user_profile_row">
+      <div><%= f.label :name %></div>
+      <div><%= f.text_field :name %></div>
     </div>
 
-    <div class="user_edit_section">
-      <div class="user_edit_field_1">
-        <%= f.label :password %>
+    <div class="edit_user_profile_row">
+      <div class="user_edit_field_1_">
+        * <%= f.label :password %>
       </div>
-      <div class="user_edit_field_2">
+      <div class="user_edit_field_2_">
         <%= f.password_field :password, autocomplete: "new-password" %> 
-          <br />
-          <span class="user_edit_field_message">(leave blank if you don't want to change it)</span>
+
         <% if @minimum_password_length %>
           <!-- <br />
           <em><%= @minimum_password_length %> characters minimum</em> -->
         <% end %>
+
       </div>
     </div>
 
-    <div class="user_edit_section">
-      <div class="user_edit_field_1"><%= f.label :password_confirmation %></div>
-      <div class="user_edit_field_2">
+    <div class="edit_user_profile_row">
+      <div>* <%= f.label :password_confirmation %></div>
+      <div>
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
     </div>
 
-    <div class="user_edit_section" style="height: auto;">
-      <div class="user_edit_field_1" style="height: auto;">Avatar</div>
-      <div class="user_edit_field_2" style="height: auto;">
+    <div class="edit_user_profile_row">
+      <span class="user_edit_field_message">* Leave these fields blank unless you want to change your password</span>
+    </div>
+
+    <div class="break" style="height: 15px;"></div>
+
+    <div class="edit_user_profile_row" style="height: auto;">
+      <div style="height: auto;">Avatar</div>
+      <div style="height: auto;">
         <%= image_tag user_avatar(resource, 100) %>
         
         <div class="break" style="height: 5px;"></div>
@@ -64,16 +73,16 @@
       </div>
     </div>
 
-    <div class="break" style="height: 5px;"></div>
+    <div class="break" style="height: 15px;"></div>
 
-    <div class="user_edit_section">
-      <div class="user_edit_field_1">
-        <%= f.label :current_password %>
+    <div class="edit_user_profile_row">
+      <div>
+        * <%= f.label :current_password %>
       </div>
-      <div class="user_edit_field_2">
+      <div>
         <%= f.password_field :current_password, autocomplete: "current-password" %>
           <br />
-          <span class="user_edit_field_message">(this is required to make changes to your profile)</span>
+          <span class="user_edit_field_message">* This is required to make any changes to your profile</span>
       </div>
     </div>
 
@@ -84,13 +93,23 @@
 
   <div class="break" style="height: 50px;"></div>
 
-  <div class="user_edit_section" style="border-top: 2px dotted red;">
-    <h3 style="color: red;">Cancel your account?</h3>
-    <div class="user_edit_field_1">
+  <div class="edit_user_profile_row" style="border-top: 2px dotted red;">
+    <div style="color: red;">Cancel your account?</div>
+  </div>
+
+  <div class="break" style="height: 10px;"></div>
+
+  <div class="edit_user_profile_row">
+    <div>
       <%= button_to "Yes, cancel my account", registration_path(resource_name), 
         style: "color: red; font-size: .85rem;", 
         data: { confirm: "Are you sure?" }, method: :delete %>
     </div>
+  </div>
+
+  <div class="break" style="height: 10px;"></div>
+
+  <div class="edit_user_profile_row">
     <div class="user_edit_field_message" style="clear: both;">
       NOTE: Canceling your account is permanent. Your login and data cannot be restored.
     </div>

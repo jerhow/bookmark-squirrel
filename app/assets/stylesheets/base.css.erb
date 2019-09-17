@@ -173,6 +173,20 @@ HR {
         width: 60%;
         margin: 2px;
     }
+
+    .edit_user_profile_row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 70%;
+        margin-bottom: 10px;
+    }
+
+    .edit_user_profile_row input[type=text], input[type=email], input[type=password] {
+        width: 225px;
+    }
 }
 
 @media screen and (min-width: 275px) and (max-width: 767px) { 
@@ -270,6 +284,16 @@ HR {
         justify-content: space-between;
         width: 97%;
         margin: 2px;
+    }
+
+    .edit_user_profile_row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 99%;
+        margin-bottom: 10px;
     }
 }
 /* /Media queries */
@@ -429,28 +453,6 @@ HR {
 
 .middot {
     font-size: 1.25rem;
-}
-
-.user_edit_section {
-    width: 100%;
-    height: auto;
-    margin: auto;
-    border-top: 1px dashed #705446;
-    margin-top: 7px;
-    padding-top: 7px;
-    padding-bottom: 15px;
-    margin-bottom: 5px;
-}
-
-.user_edit_field_1 {
-    width: 20%;
-    height: 40px;
-    float: left;
-}
-
-.user_edit_field_2 {
-    margin-left: 20%;
-    height: 40px;
 }
 
 .user_edit_field_message {

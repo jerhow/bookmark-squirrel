@@ -63,48 +63,31 @@
 
 </div>
 
-<div id="bm_container">
+<div id="bm_container_new">
 <% @bookmarks.each do |b| %>
-  <div id="bm_<%= b.id %>" class="bm_row">
-    
-    <div id="column_left_<%= b.id %>" class="bm_column_left">
-      <div id="bm_title_<%= b.id %>" class="bm_title_display"><%= b.title %></div>
-    </div>
-    
-    <div id="column_right_<%= b.id %>" class="bm_column_right">
-      <div id="bm_created_at_80" class="bm_created_at_display">
+  <div class="bm_row">
+    <div class="bm_sub_row_a">
+      <div class="bm_title_display">
+        <%= b.title %>
+      </div>
+      <div class="bm_created_at_display">
         Created on <%= b.created_at.strftime("%m/%d/%Y") %>
       </div>
-    </div> <!-- column_right_* -->
-
-    <div class="clear"></div>
-    
-    <div class="break" style="height: 5px;"></div>
-
-    <div id="bm_url_row_<%= b.id %>" class="bm_url_row">
+    </div>    
+    <div class="bm_sub_row_b">
       <%= sanitize( link_to(nil, b.url, target: "_blank" ), attributes: %w(href target) ) %>
     </div>
-    
-    <div class="break" style="height: 5px;"></div>
-
-    <div class="clear"></div>
-    
-    <div id="bm_desc_row_<%= b.id %>" class="bm_desc_row">
-      <div id="bm_desc_text_<%= b.id %>" class="bm_desc_text">
-        <%= b.desc %>
-      </div>
+    <div class="bm_sub_row_c">
+      <%= b.desc %>
     </div>
-    
-    <div id="action_row_<%= b.id %>" class="bm_action_row">
+    <div class="bm_sub_row_d">
       <%= action_row @showing_archived, b %>
     </div>
-
   </div>
 <% end %>
 </div>
 
 <%= javascript_tag do %>
-
 var showing_archived = <%= @showing_archived %>;
 
 function change_group(group_id) {
@@ -126,5 +109,4 @@ function sort(by) {
 
   window.location.href = group_id + "?sort=" + by + "&" + sa_url;
 }
-
 <% end %>

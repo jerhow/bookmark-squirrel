@@ -1,71 +1,74 @@
-<% if current_user %>
-  Welcome, <%= user_name current_user.name %>!
-<% end %>
+<div style="margin-left: 2px; margin-right: 2px;">
 
-<% if current_user %>
-<br />
-<%= link_to(image_tag(user_avatar(current_user, 75)), show_user_path, alt: current_user.name) if !current_user.nil? %>
-<% end %>
+  <% if current_user %>
+    Welcome, <%= user_name current_user.name %>!
+  <% end %>
 
-<% if current_user %>
+  <% if current_user %>
+  <br />
+  <%= link_to(image_tag(user_avatar(current_user, 75)), show_user_path, alt: current_user.name) if !current_user.nil? %>
+  <% end %>
 
-  <p>
-    How to use this app: <br />
+  <% if current_user %>
+
+    <p>
+      How to use this app: <br />
+      <ul>
+      <li><i>Groups</i> are collections of bookmarks.<br /></li>
+      <li>Groups can have one or more members.<br /></li>
+      <li>By adding members to our groups, we can share bookmarks with those members.</li>
+      </ul>
+    </p>
+    <p>
+      That's it, in a nutshell :)
+    </p>
+
+    <div class="break" style="height: 3px;"></div>
+
+    <div style="width: 25%; text-align: left;"><hr></div>
+
+    Currently:
     <ul>
-    <li><i>Groups</i> are collections of bookmarks.<br /></li>
-    <li>Groups can have one or more members.<br /></li>
-    <li>By adding members to our groups, we can share bookmarks with those members.</li>
+      <li>You are the owner of <%= pluralize(@group_ownership_count, 'group') %></li>
+      <li>In addition, you are a member of <%= pluralize(@group_membership_count, 'group') %> 
+      belonging to someone else</li>
     </ul>
-  </p>
+
+    <div class="home_page_action_row">
+
+      <%= link_to user_groups_path do %>
+        <button class="btn_blue large">Go to my groups</button>
+      <% end %>
+
+      <div class="break" style="height: 15px;"></div>
+
+      <%= link_to new_bookmark_path do %>
+        <button class="btn_green large">Create a new bookmark</button>
+      <% end %>
+
+    </div>
+
+  <% end %>
+
+  <% if !current_user %>
+  <p>Hello there!</p>
   <p>
-    That's it, in a nutshell :)
+    <b>Bookmark Squirrel</b> is an app for storing bookmarks, organizing them into groups, and sharing them with others.
+    It is free to use, and requires no personal information other than an email address.
   </p>
+  <% end %>
 
-  <div class="break" style="height: 3px;"></div>
+  <% if !current_user %>
+    <div class="break" style="height: 10px;"></div>
+    <div style="width: 25%; text-align: left;"><hr></div>
+    
+    <%= login_helper %>
 
-  <div style="width: 25%; text-align: left;"><hr></div>
+    <p>
+      For the curious, you can also sign in with a temporary
+        <%= link_to "demo account", demo_init_path, method: "post", rel: "nofollow" %>
+        and have a look around.
+    </p>
+  <% end %>
 
-  Currently:
-  <ul>
-    <li>You are the owner of <%= pluralize(@group_ownership_count, 'group') %></li>
-    <li>In addition, you are a member of <%= pluralize(@group_membership_count, 'group') %> 
-    belonging to someone else</li>
-  </ul>
-
-  <div class="home_page_action_row">
-
-    <%= link_to user_groups_path do %>
-      <button class="btn_blue large">Go to my groups</button>
-    <% end %>
-
-    <div class="break" style="height: 15px;"></div>
-
-    <%= link_to new_bookmark_path do %>
-      <button class="btn_green large">Create a new bookmark</button>
-    <% end %>
-
-  </div>
-
-<% end %>
-
-<% if !current_user %>
-<br />
-<p>Hello there!</p>
-<p>
-  <b>Bookmark Squirrel</b> is an app for storing bookmarks, organizing them into groups, and sharing them with others.
-  It is free to use, and requires no personal information other than an email address.
-</p>
-<% end %>
-
-<% if !current_user %>
-  <div class="break" style="height: 10px;"></div>
-  <div style="width: 25%; text-align: left;"><hr></div>
-  
-  <%= login_helper %>
-
-  <p>
-    For the curious, you can also sign in with a temporary
-      <%= link_to "demo account", demo_init_path, method: "post", rel: "nofollow" %>
-      and have a look around.
-  </p>
-<% end %>
+</div>

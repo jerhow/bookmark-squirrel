@@ -9,6 +9,7 @@
   </div>
 
     <% if current_user %>
+    <div>
       <button class="hamburger">&#9776;</button>
       <button class="cross">&#735;</button>
 
@@ -20,6 +21,7 @@
           <a href="<%= destroy_user_session_path %>" title="Logout" rel="nofollow" data-method="delete"><li>Logout</li></a>
         </ul>
       </div>
+    </div>
     <% end %>
 
 </div>

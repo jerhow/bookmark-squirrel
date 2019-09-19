@@ -77,228 +77,6 @@ HR {
     font-size: .95rem;
 }
 
-/* ======================================================================================= */
-/* Media queries */
-
-@media screen and (min-width: 768px) { 
-    #functional_row_top, #functional_row_bottom {
-        width: 768px;
-    }
-
-    #outer_container {
-        width: 768px;
-        margin: 0 auto;
-        margin-top: 100px;
-        margin-bottom: 55px;
-    }
-
-    input[type=text], input[type=email], input[type=password] {
-      padding: 1px;
-      height: 25px;
-      border: 1px solid #705446;
-      background-color: white;
-      font-size: 1rem;
-    }
-
-    #header-logo {
-        background-image: url('<%= asset_path "bs-logo-02.png" %>');
-        width: 55px;
-        height: 80px;
-        background-size: contain; /* If image breaks out of containing div, check browser compatibility with this property */
-        background-repeat: no-repeat;
-    }
-
-    #bm_page_functional_top_row_left {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-around;
-        align-items: center;
-        width: 45%;
-    }
-
-    #bm_page_functional_top_row_right {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-around;
-        align-items: left;
-        width: 50%;
-    }
-
-    .db_ddl_label {
-        font-size: .85rem;
-        font-weight: bold;
-    }
-
-    .new_bm_textbox {
-        width: 375px;
-    }
-
-    .new_bm_textarea {
-        width: 375px;
-        height: 60px;
-        font-size: .9rem;
-    }
-
-    .user_profile_row {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        width: 60%;
-        margin: 2px;
-    }
-
-    .edit_user_profile_row {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        width: 70%;
-        margin-bottom: 10px;
-    }
-
-    .edit_user_profile_row input[type=text], input[type=email], input[type=password] {
-        width: 225px;
-    }
-
-    .home_page_action_row {
-        width: 75%;
-    }
-
-    #bm_page_top_container_b {
-        padding-top: 20px;
-    }
-
-    .cross {
-        background: none;
-        position: absolute;
-        top: 0px;
-        right: 0;
-        color: #000;
-        border: 0;
-        font-size: 5em;
-        line-height: 65px;
-        font-weight: bold;
-        cursor: pointer;
-        outline: none;
-        z-index: 1000000;
-        padding-top: 17px;
-        padding-right: 15px;
-        padding-bottom: 0px;
-        padding-left: 15px;
-    }
-}
-
-@media screen and (min-width: 275px) and (max-width: 767px) { 
-    #functional_row_top, #functional_row_bottom {
-        width: 100%;
-    }
-
-    #outer_container {
-        width: 100%;
-        margin: 0 auto;
-        margin-top: 130px;
-        margin-bottom: 55px;
-    }
-
-    input[type=text], input[type=email], input[type=password] {
-      padding: 0px;
-      height: 20px;
-      border: 1px solid #705446;
-      background-color: white;
-      font-size: .9rem;
-    }
-
-    #header-logo {
-        background-image: url('<%= asset_path "bs-logo-02.png" %>');
-        width: 48px;
-        height: 70px;
-        background-size: contain; /* If image breaks out of containing div, check browser compatibility with this property */
-        background-repeat: no-repeat;
-    }
-
-    #bm_page_functional_top_row_left {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-items: left;
-        /*border: 1px solid red;*/
-    }
-
-    #bm_page_functional_top_row_right {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-items: left;
-        /*border: 1px solid red;*/
-    }
-
-    .db_ddl_label {
-        font-size: .85rem;
-        font-weight: bold;
-        clear: right;
-    }
-
-    .new_bm_textbox {
-        width: 225px;
-    }
-
-    .new_bm_textarea {
-        width: 225px;
-        height: 60px;
-        font-size: .9rem;
-    }
-
-    .user_profile_row {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        width: 97%;
-        margin: 2px;
-    }
-
-    .edit_user_profile_row {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        width: 99%;
-        margin-bottom: 10px;
-    }
-
-    #bm_page_top_container_b {
-        padding-top: 10px;
-    }
-
-    .cross {
-        background: none;
-        position: absolute;
-        top: 0px;
-        right: 0;
-        color: #000;
-        border: 0;
-        font-size: 5em;
-        line-height: 65px;
-        font-weight: bold;
-        cursor: pointer;
-        outline: none;
-        z-index: 1000000;
-        padding-top: 20px;
-        padding-right: 15px;
-        padding-bottom: 0px;
-        padding-left: 15px;
-    }
-}
-/* /Media queries */
-/* ======================================================================================= */
-
 #header_flexbox {
     position: fixed;
     top: 0;
@@ -307,7 +85,8 @@ HR {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
+    justify-content: center;
     background-color: #705446;
 }
 
@@ -428,6 +207,17 @@ HR {
 /* /Hamburger menu */
 /* ======================================================================================= */
 
+#header_flexbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: #705446;
+}
+
 #footer {
     position: fixed;
     left: 0;
@@ -494,7 +284,7 @@ HR {
     text-align: center;
 }
 
-.header_cell_a {
+/*.header_cell_a {
     text-align: center;
     overflow: auto;
     width: 30%;
@@ -516,7 +306,7 @@ HR {
     overflow: auto;
     width: 35%;
     float: left;
-}
+}*/
 
 .footer_cell {
     display: flex;
@@ -739,4 +529,234 @@ HR {
     margin-top: 5px;
 }
 /* /Bookmark show page */
+/* ======================================================================================= */
+
+/* ======================================================================================= */
+/* Media queries */
+
+@media screen and (min-width: 768px) { 
+    #functional_row_top, #functional_row_bottom {
+        width: 768px;
+    }
+
+    #outer_container {
+        width: 768px;
+        margin: 0 auto;
+        margin-top: 100px;
+        margin-bottom: 55px;
+    }
+
+    input[type=text], input[type=email], input[type=password] {
+      padding: 1px;
+      height: 25px;
+      border: 1px solid #705446;
+      background-color: white;
+      font-size: 1rem;
+    }
+
+    #header-logo {
+        background-image: url('<%= asset_path "bs-logo-02.png" %>');
+        width: 55px;
+        height: 80px;
+        background-size: contain; /* If image breaks out of containing div, check browser compatibility with this property */
+        background-repeat: no-repeat;
+    }
+
+    #bm_page_functional_top_row_left {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: center;
+        width: 45%;
+    }
+
+    #bm_page_functional_top_row_right {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: left;
+        width: 50%;
+    }
+
+    .db_ddl_label {
+        font-size: .85rem;
+        font-weight: bold;
+    }
+
+    .new_bm_textbox {
+        width: 375px;
+    }
+
+    .new_bm_textarea {
+        width: 375px;
+        height: 60px;
+        font-size: .9rem;
+    }
+
+    .user_profile_row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 60%;
+        margin: 2px;
+    }
+
+    .edit_user_profile_row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 70%;
+        margin-bottom: 10px;
+    }
+
+    .edit_user_profile_row input[type=text], input[type=email], input[type=password] {
+        width: 225px;
+    }
+
+    .home_page_action_row {
+        width: 75%;
+    }
+
+    #bm_page_top_container_b {
+        padding-top: 20px;
+    }
+
+    .cross {
+        background: none;
+        position: absolute;
+        top: 0px;
+        right: 0;
+        color: #000;
+        border: 0;
+        font-size: 5em;
+        line-height: 65px;
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+        z-index: 1000000;
+        padding-top: 17px;
+        padding-right: 15px;
+        padding-bottom: 0px;
+        padding-left: 15px;
+    }
+
+    #header_flexbox {
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 275px) and (max-width: 767px) { 
+    #functional_row_top, #functional_row_bottom {
+        width: 100%;
+    }
+
+    #outer_container {
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 130px;
+        margin-bottom: 55px;
+    }
+
+    input[type=text], input[type=email], input[type=password] {
+      padding: 0px;
+      height: 20px;
+      border: 1px solid #705446;
+      background-color: white;
+      font-size: .9rem;
+    }
+
+    #header-logo {
+        background-image: url('<%= asset_path "bs-logo-02.png" %>');
+        width: 48px;
+        height: 70px;
+        background-size: contain; /* If image breaks out of containing div, check browser compatibility with this property */
+        background-repeat: no-repeat;
+    }
+
+    #bm_page_functional_top_row_left {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: left;
+        /*border: 1px solid red;*/
+    }
+
+    #bm_page_functional_top_row_right {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: left;
+        /*border: 1px solid red;*/
+    }
+
+    .db_ddl_label {
+        font-size: .85rem;
+        font-weight: bold;
+        clear: right;
+    }
+
+    .new_bm_textbox {
+        width: 225px;
+    }
+
+    .new_bm_textarea {
+        width: 225px;
+        height: 60px;
+        font-size: .9rem;
+    }
+
+    .user_profile_row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 97%;
+        margin: 2px;
+    }
+
+    .edit_user_profile_row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 99%;
+        margin-bottom: 10px;
+    }
+
+    #bm_page_top_container_b {
+        padding-top: 10px;
+    }
+
+    .cross {
+        background: none;
+        position: absolute;
+        top: 0px;
+        right: 0;
+        color: #000;
+        border: 0;
+        font-size: 5em;
+        line-height: 65px;
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+        z-index: 1000000;
+        padding-top: 20px;
+        padding-right: 15px;
+        padding-bottom: 0px;
+        padding-left: 15px;
+    }
+
+    #header_flexbox {
+        justify-content: space-between;
+    }
+}
+/* /Media queries */
 /* ======================================================================================= */

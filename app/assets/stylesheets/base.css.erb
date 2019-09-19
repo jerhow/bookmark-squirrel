@@ -7,6 +7,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #FDF4E3;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 a:link {
@@ -98,38 +100,12 @@ HR {
       font-size: 1rem;
     }
 
-    #logo-text-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        margin-top: 2px;
-        margin-bottom: 3px;
-    }
-
     #header-logo {
         background-image: url('<%= asset_path "bs-logo-02.png" %>');
         width: 55px;
         height: 80px;
         background-size: contain; /* If image breaks out of containing div, check browser compatibility with this property */
         background-repeat: no-repeat;
-    }
-
-    #masthead-container {
-        margin-left: 10px;
-        text-align: center;
-    }
-
-    #masthead-title {
-        color: #f0ddd8;
-        font-size: 1.1rem;
-        font-weight: bold;
-    }
-
-    #masthead-tagline {
-        color: #f0ddd8;
-        font-size: .75rem;
     }
 
     #bm_page_functional_top_row_left {
@@ -195,6 +171,25 @@ HR {
     #bm_page_top_container_b {
         padding-top: 20px;
     }
+
+    .cross {
+        background: none;
+        position: absolute;
+        top: 0px;
+        right: 0;
+        color: #000;
+        border: 0;
+        font-size: 5em;
+        line-height: 65px;
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+        z-index: 1000000;
+        padding-top: 17px;
+        padding-right: 15px;
+        padding-bottom: 0px;
+        padding-left: 15px;
+    }
 }
 
 @media screen and (min-width: 275px) and (max-width: 767px) { 
@@ -217,38 +212,12 @@ HR {
       font-size: .9rem;
     }
 
-    #logo-text-container {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        margin-top: 2px;
-        margin-bottom: 3px;
-    }
-
     #header-logo {
         background-image: url('<%= asset_path "bs-logo-02.png" %>');
         width: 48px;
         height: 70px;
         background-size: contain; /* If image breaks out of containing div, check browser compatibility with this property */
         background-repeat: no-repeat;
-    }
-
-    #masthead-container {
-        margin-left: 2px;
-        text-align: center;
-    }
-
-    #masthead-title {
-        color: #f0ddd8;
-        font-size: 1.2rem;
-        font-weight: bold;
-    }
-
-    #masthead-tagline {
-        color: #f0ddd8;
-        font-size: .9rem;
     }
 
     #bm_page_functional_top_row_left {
@@ -307,6 +276,25 @@ HR {
     #bm_page_top_container_b {
         padding-top: 10px;
     }
+
+    .cross {
+        background: none;
+        position: absolute;
+        top: 0px;
+        right: 0;
+        color: #000;
+        border: 0;
+        font-size: 5em;
+        line-height: 65px;
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+        z-index: 1000000;
+        padding-top: 20px;
+        padding-right: 15px;
+        padding-bottom: 0px;
+        padding-left: 15px;
+    }
 }
 /* /Media queries */
 /* ======================================================================================= */
@@ -319,26 +307,19 @@ HR {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: space-between;
     background-color: #705446;
 }
 
-.nav_link_container {
+#logo-text-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: flex-start;
     align-items: center;
-    font-size: 1.1rem;
-    color: #f0ddd8;
-}
-
-.nav_link_container a {
-    color: #f0ddd8;
-}
-
-.nav_link_container a:hover {
-    text-decoration: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
 }
 
 #masthead-title {
@@ -352,6 +333,100 @@ HR {
     color: #f0ddd8;
     font-size: .75rem;
 }
+
+#masthead-container {
+    margin-left: 10px;
+    text-align: left;
+}
+
+/* ======================================================================================= */
+/* Hamburger menu */
+
+.hamburger {
+    background: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 45px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 0px;
+    padding-left: 15px;
+    color: #f0ddd8;
+    border: 0;
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    z-index: 2000000;
+}
+
+.menu { 
+    z-index: 1000000;
+    font-weight: bold;
+    font-size: 0.8em;
+    width: 166px;
+    background: #3C3431;
+    position: absolute;
+    text-align: center;
+    font-size: 1rem;
+    top: 50px;
+    right: 0%;
+}
+
+.menu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    list-style-image: none;
+}
+
+.menu li {
+    display: block;
+    padding-top: 15px;
+    padding-right: 0px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+    border-bottom: #FDF4E3 1px solid;
+    color: #FDF4E3;
+}
+.menu li:hover {
+    display: block;
+    background: #E1C391;
+    color: #3C3431;
+    padding: 15px 0 15px 0;
+    border-bottom: #FDF4E3 1px solid;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    margin: 0px; 
+    color: #FDF4E3;
+}
+.menu ul li a:hover {
+    color: #3C3431;
+    text-decoration: none;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #3C3431;
+}
+
+.menu a:hover{
+    text-decoration: none;
+    color: #3C3431;
+}
+
+.glyphicon-home {
+  color: white; 
+  font-size: 1.5em; 
+  margin-top: 5px; 
+  margin: 0 auto;
+}
+
+/* /Hamburger menu */
+/* ======================================================================================= */
 
 #footer {
     position: fixed;

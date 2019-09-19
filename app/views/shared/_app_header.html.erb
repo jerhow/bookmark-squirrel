@@ -1,49 +1,25 @@
-    <div id="header_flexbox">
+<div id="header_flexbox">
 
-      <div class="nav_link_container">
-      
-        <% if current_user %>
-          <%= link_to root_path, title: "Home" do %>
-            <button class="btn_header">&nbsp;Home&nbsp;</button>
-          <% end %>
-        <% end %>
-
-        <div class="break" style="height: 20px;"></div>
-
-        <% if current_user %>
-          <%= link_to user_groups_path, title: "Groups" do %>
-            <button class="btn_header">Groups</button>
-          <% end %>
-        <% end %>
-      
+  <div id="logo-text-container">
+      <div id="header-logo"></div>
+      <div id="masthead-container">
+        <div id='masthead-title'>Bookmark Squirrel</div>
+        <div id='masthead-tagline'>Bookmark sharing for hoarders</div>
       </div>
-      
-      <div id="logo-text-container">
-          <div id="header-logo"></div>
-          <div id="masthead-container">
-            <div id='masthead-title'>Bookmark Squirrel</div>
-            <div id='masthead-tagline'>Bookmark sharing for hoarders</div>
-          </div>
+  </div>
+
+    <% if current_user %>
+      <button class="hamburger">&#9776;</button>
+      <button class="cross">&#735;</button>
+
+      <div class="menu">
+        <ul>
+          <a href="<%= root_path %>"><li>Home</li></a>
+          <a href="<%= user_groups_path %>"><li>Groups</li></a>
+          <a href="<%= show_user_path %>"><li>My Profile</li></a>
+          <a href="<%= destroy_user_session_path %>" title="Logout" rel="nofollow" data-method="delete"><li>Logout</li></a>
+        </ul>
       </div>
+    <% end %>
 
-      <div class="nav_link_container">
-
-        <% if current_user %>
-          <%= link_to show_user_path, title: "My Profile" do %>
-            <button class="btn_header">Profile&nbsp;</button>
-          <% end %>
-        <% else %>
-          &nbsp;
-        <% end %>
-
-        <div class="break" style="height: 20px;"></div>
-
-        <% if current_user %>
-          <%= link_to destroy_user_session_path, title: "Logout", method: :delete do %>
-            <button class="btn_header">Logout</button>
-          <% end %>
-        <% end %>
-
-      </div>
-
-    </div> <!-- /header_flexbox -->
+</div>

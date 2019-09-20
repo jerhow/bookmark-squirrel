@@ -4,9 +4,11 @@
 
 <%= render 'form', group: @group %>
 
-<br />
+<div class="break" style="height: 25px;"></div>
 
-<%= link_to 'Add a user to this group', new_user_for_group_path(@group) %>
+<%= link_to new_user_for_group_path(@group) do %>
+  <button class="btn_green medium">Add a user to this group</button>
+<% end %>
 
 <hr />
 

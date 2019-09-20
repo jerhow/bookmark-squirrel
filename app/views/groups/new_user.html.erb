@@ -1,18 +1,18 @@
+<%= link_to '&larr; Back'.html_safe, edit_group_path(@group) %>
+
 <h3>Add User to Group</h3>
 
 <%= form_with(url: add_user_to_group_path(@group)) do |form| %>
-<!-- local: true,  -->
   
   <div class="field">
     <%= form.label :email_of_user %>
     <%= form.text_field :email %>
   </div>
 
+  <div class="break" style="height: 15px;"></div>
+
   <div class="actions">
     <%= form.submit "Submit" %>
   </div>
 
 <% end %>
-
-<br />
-<%= link_to 'Back', edit_group_path(@group) %>

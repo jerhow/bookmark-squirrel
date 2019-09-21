@@ -109,7 +109,7 @@ class GroupsController < ApplicationController
     
     if current_user_owns_group?(group)
     
-      email = params['email']
+      email = params['email'].downcase
       user = User.find_by(email: email)
       user = User.new if user.nil?
 

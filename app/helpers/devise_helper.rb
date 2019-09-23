@@ -1,4 +1,8 @@
 module DeviseHelper
+  def demo_mode
+    !session[:demo_email].nil?
+  end
+
   def demo_field_helper(field)
 
     if field == :demo_email

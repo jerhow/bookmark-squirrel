@@ -28,4 +28,11 @@ module DeviseHelper
       ""
     end
   end
+
+  def demo_mode_clear_temp_vars
+    if demo_mode
+      session.delete(:demo_email)
+      session.delete(:demo_pw)
+    end
+  end
 end

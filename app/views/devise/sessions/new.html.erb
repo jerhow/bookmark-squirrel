@@ -8,16 +8,30 @@
   </div>
 
   <div class="login_field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: demo_field_helper(:demo_email) %>
+    <%= f.label :email %>:
+    <div class="break" style="height: 3px;"></div>
+    <% if demo_mode %>
+      <div class="demo_mode_login_field">demo@bookmarksquirrel.com</div>
+      <%= f.hidden_field :email, value: demo_field_helper(:demo_email) %>
+    <% else %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", value: demo_field_helper(:demo_email) %>
+    <% end %>
   </div>
+
+  <div class="break" style="height: 5px;"></div>
 
   <div class="login_field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password", value: demo_field_helper(:demo_pw) %>
+    <%= f.label :password %>:
+    <div class="break" style="height: 3px;"></div>
+    <% if demo_mode %>
+      <div class="demo_mode_login_field"><%= "*" * 24 %></div>
+      <%= f.hidden_field :password, value: demo_field_helper(:demo_pw) %>
+    <% else %>
+      <%= f.password_field :password, autocomplete: "current-password", value: demo_field_helper(:demo_pw) %>
+    <% end %>
   </div>
 
-  <% if devise_mapping.rememberable? %>
+  <% if devise_mapping.rememberable? && !demo_mode %>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
@@ -30,5 +44,4 @@
   </div>
 <% end %>
 
-<br />
-<%= render "devise/shared/links" %>
+<% demo_mode_clear_temp_vars %>

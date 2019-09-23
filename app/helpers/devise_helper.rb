@@ -1,4 +1,8 @@
 module DeviseHelper
+  def demo_mode
+    !session[:demo_email].nil?
+  end
+
   def demo_field_helper(field)
 
     if field == :demo_email
@@ -22,6 +26,13 @@ module DeviseHelper
       "NOTE: This is a temporary demo account. It will permanently expire in one hour."
     else
       ""
+    end
+  end
+
+  def demo_mode_clear_temp_vars
+    if demo_mode
+      session.delete(:demo_email)
+      session.delete(:demo_pw)
     end
   end
 end

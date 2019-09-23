@@ -121,6 +121,18 @@ HR {
     text-align: left;
 }
 
+.demo_mode_login_field {
+    font-family: "Courier New", Courier, monospace, sans-serif;
+    font-size: 1rem;
+    width: 275px;
+    height: 25px;
+}
+
+#cancel_account_hint {
+    font-size: .9rem;
+    font-style: italic;
+}
+
 /* ======================================================================================= */
 /* Hamburger menu */
 
@@ -508,6 +520,14 @@ HR {
 /* /Bookmark show page */
 /* ======================================================================================= */
 
+#change_password_prompt {
+    display: flex;
+}
+
+#change_password_section_1, #change_password_section_2, #change_password_section_3 {
+    display: none;
+}
+
 /* ======================================================================================= */
 /* Media queries */
 
@@ -537,7 +557,7 @@ HR {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         width: 45%;
     }

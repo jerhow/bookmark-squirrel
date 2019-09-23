@@ -143,11 +143,13 @@ function change_password_ui_toggle(e) {
     $("#change_password_section_3").css("display", "none");
     $("#change_password_section_2").css("display", "none");
     $("#change_password_section_1").css("display", "none");
+    $("#change_password_link").html("Update password?");
     change_password_visible = false;
   } else {
     $("#change_password_section_1").css("display", "flex");
     $("#change_password_section_2").css("display", "flex");
     $("#change_password_section_3").css("display", "flex");
+    $("#change_password_link").html("Cancel");
     change_password_visible = true;
   }
 }

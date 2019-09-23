@@ -28,33 +28,31 @@
       <div><%= f.text_field :name %></div>
     </div>
 
-    <div class="edit_user_profile_row">
-      <div class="user_edit_field_1_">
-        * <%= f.label :password %>
-      </div>
-      <div class="user_edit_field_2_">
-        <%= f.password_field :password, autocomplete: "new-password" %> 
+    <div class="break" style="height: 15px;"></div>
 
-        <% if @minimum_password_length %>
-          <!-- <br />
-          <em><%= @minimum_password_length %> characters minimum</em> -->
-        <% end %>
-
-      </div>
+    <div class="edit_user_profile_row" id="change_password_prompt">
+      <div><a id="change_password_link" href="#cp">Update password?</a></div>
+      <div>&nbsp;</div>
     </div>
 
-    <div class="edit_user_profile_row">
-      <div>* <%= f.label :password_confirmation %></div>
+    <div class="edit_user_profile_row" id="change_password_section_1">
+      <span class="user_edit_field_message">* If you want to <u>change</u> your password, this is the spot</span>
+    </div>
+
+
+    <div class="edit_user_profile_row" id="change_password_section_2">
+      <div><%= f.label :new_password %></div>
+      <div><%= f.password_field :password, autocomplete: "new-password" %></div>
+    </div>
+
+    <div class="edit_user_profile_row" id="change_password_section_3">
+      <div><%= f.label :new_password_confirm %></div>
       <div>
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
     </div>
 
-    <div class="edit_user_profile_row">
-      <span class="user_edit_field_message">* Leave these fields blank unless you want to change your password</span>
-    </div>
-
-    <div class="break" style="height: 15px;"></div>
+    <div class="break" style="height: 50px;"></div>
 
     <div class="edit_user_profile_row" style="height: auto;">
       <div style="height: auto;">Avatar</div>
@@ -126,3 +124,31 @@
   <div class="break" style="height: 20px;"></div>
 
 </div>
+
+<%= javascript_tag do %>
+
+var change_password_visible = false;
+
+$(document).ready(
+  function() {
+    $("#change_password_link").click(function(e) {
+      e.preventDefault();
+      change_password_ui_toggle();
+    });
+  }
+);
+
+function change_password_ui_toggle(e) {
+  if(change_password_visible) {
+    $("#change_password_section_3").css("display", "none");
+    $("#change_password_section_2").css("display", "none");
+    $("#change_password_section_1").css("display", "none");
+    change_password_visible = false;
+  } else {
+    $("#change_password_section_1").css("display", "flex");
+    $("#change_password_section_2").css("display", "flex");
+    $("#change_password_section_3").css("display", "flex");
+    change_password_visible = true;
+  }
+}
+<% end %>

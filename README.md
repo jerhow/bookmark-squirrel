@@ -3,13 +3,13 @@
 # Bookmark Squirrel
 *Bookmark sharing for hoarders*
 
-In my personal life, saving and sharing links a million different ways was getting out of control. This web app is an attempt to wrangle that chaos into one place, and have a better way to organize and share bookmarks.
+For me personally, saving and sharing links a million different ways is getting old. This is an experiment to see whether storing, organizing and sharing bookmarks from a centralized service provides significant benefit to me or not.
 
 Built on Ruby 2.6 + Rails 5.2 + PostgreSQL 11.3
 
-UI is responsive so it should look pretty good on mobile, although it's only getting UAT'd on a couple of stock Android devices at the moment.
+UI is responsive and should look pretty good on modern mobile devices.
 
-It's a work in progress, with more features to come. You can see it in action here: [bookmarksquirrel.com](https://bookmarksquirrel.com)
+It's a work in progress, with features still to come. You can see it in action here: [bookmarksquirrel.com](https://bookmarksquirrel.com)
 
 ### License
 Copyright © 2019 Jerry Howard<br/>

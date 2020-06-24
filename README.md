@@ -9,7 +9,7 @@ Built on Ruby 2.6 + Rails 5.2 + PostgreSQL 11.3
 
 UI is responsive and should look pretty good on modern mobile devices.
 
-It's a work in progress, with features still to come. You can see it in action here: [bookmarksquirrel.com](https://bookmarksquirrel.com)
+It's a work in progress.
 
 ### License
 Copyright © 2019 Jerry Howard<br/>
